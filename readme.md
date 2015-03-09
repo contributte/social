@@ -16,7 +16,7 @@ $ composer require minetro/social:~1.0.0
 
 ### [Facebook](https://github.com/minetro/social/tree/master/docs/Facebook.md)
 
-### [Twitter Button](https://github.com/minetro/social/tree/master/docs/TwitterButton.md)
+### [Twitter](https://github.com/minetro/social/tree/master/docs/Twitter.md)
 
 ### [Google Analytics Campaign](https://github.com/minetro/social/tree/master/docs/GoogleAnalytics.md)
 
