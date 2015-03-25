@@ -21,7 +21,7 @@ Small utility for creating GA accepted parameters to url.
 use Minetro\Social\Google\Analytics\Campaign;
 
 // Source, medium, campaign
-$campaign = newCampaign('newsletter', 'website', 'april13');
+$campaign = new Campaign('newsletter', 'website', 'april13');
 $this->link('Card:detail', $campaign->build());
 
 // Source, medium, campaign, term, content

@@ -22,8 +22,10 @@
 ## Factory
 
 ```php
+use Minetro\Social\Google\PlusOne;
+
 protected function createComponentPlusone() {
-    $button = new NettePlugins\Social\Google\PlusOne();
+    $button = new PlusOne();
     $button->setMode($button::MODE_DEFAULT);
     $button->setUrl('www.google.com');
 
@@ -32,7 +34,7 @@ protected function createComponentPlusone() {
 ```
 
 ```php
-/** @var NettePlugins\Social\Google\IPlusOneFactory @inject */
+/** @var Minetro\Social\Google\IPlusOneFactory @inject */
 public $plusOneFactory;
 
 protected function createComponentPlusone() {

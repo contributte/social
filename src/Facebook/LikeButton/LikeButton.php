@@ -1,6 +1,6 @@
 <?php
 
-namespace Minetro\Facebook;
+namespace Minetro\Social\Facebook;
 
 use Nette\Utils\Html;
 

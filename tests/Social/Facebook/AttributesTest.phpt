@@ -4,7 +4,7 @@
  * Test: AttributesTest
  */
 
-use Minetro\Facebook\Attributes;
+use Minetro\Social\Facebook\Attributes;
 use Tester\Assert;
 
 require __DIR__ . '/../../bootstrap.php';

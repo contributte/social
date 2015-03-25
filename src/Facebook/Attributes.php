@@ -1,9 +1,11 @@
 <?php
 
-namespace Minetro\Facebook;
+namespace Minetro\Social\Facebook;
 
 use ArrayAccess;
+use ArrayIterator;
 use Countable;
+use IteratorAggregate;
 use Nette\MemberAccessException;
 
 /**
@@ -12,7 +14,7 @@ use Nette\MemberAccessException;
  * @author Milan Felix Sulc <sulcmil@gmail.com>
  * @version 3.0
  */
-class Attributes implements Countable, ArrayAccess
+class Attributes implements Countable, ArrayAccess, IteratorAggregate
 {
 
     /** @var array */
@@ -97,6 +99,16 @@ class Attributes implements Countable, ArrayAccess
     public function offsetUnset($offset)
     {
         unset($this->attrs[$offset]);
+    }
+
+    /** ARRAY ACCESS **********************************************************/
+
+    /**
+     * @return ArrayIterator
+     */
+    public function getIterator()
+    {
+        return new ArrayIterator($this->attrs);
     }
 
     /** MAGIC *****************************************************************/

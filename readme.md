@@ -9,7 +9,7 @@ Social plugins for sharing and liking.
 
 ## Install
 ```sh
-$ composer require minetro/social:~1.0.0
+$ composer require minetro/social:~1.0
 ```
 
 ## TOC

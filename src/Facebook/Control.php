@@ -1,6 +1,6 @@
 <?php
 
-namespace Minetro\Facebook;
+namespace Minetro\Social\Facebook;
 
 use Nette\Application\UI\Control as NetteControl;
 use Nette\ComponentModel\IContainer;
@@ -41,13 +41,16 @@ abstract class Control extends NetteControl
     /** HELPERS ***************************************************************/
 
     /**
-     * @param array $attributes
+     * @param Attributes|array $attributes
      * @return Html
      */
-    protected function createElement(array $attributes = [])
+    protected function createElement($attributes)
     {
         $el = Html::el('div');
-        $el->addAttributes($attributes);
+
+        foreach ($attributes as $key => $val) {
+            $el->$key = $val;
+        }
 
         return $el;
     }

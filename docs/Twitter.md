@@ -42,14 +42,14 @@ use Minetro\Social\Twitter\TweetButton;
   * @return TweetButton
   */
 protected function createComponentPlusone() {
-    $button = new TweetButtonTweetButton();
+    $button = new TweetButton();
     $button->setShareButton('www.google.com');
     return $button;
 }
 ```
 
 ```php
-/** @var NettePlugins\Social\Twitter\ITweetButtonFactory @inject */
+/** @var Minetro\Social\Twitter\ITweetButtonFactory @inject */
 public $twitterFactory;
 
 /**

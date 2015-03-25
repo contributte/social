@@ -4,9 +4,10 @@
  * Test: ControlTest
  */
 
-use Minetro\Facebook\Control;
+use Minetro\Social\Facebook\Control;
 use Nette\Utils\Html;
 use Tester\Assert;
+use Minetro\Social\Facebook\Attributes;
 
 require __DIR__ . '/../../bootstrap.php';
 
@@ -21,7 +22,7 @@ final class ControlMock extends Control
         return Html::el('div');
     }
 
-    public function createElement(array $data = []) {
+    public function createElement($data) {
         return parent::createElement($data);
     }
 
@@ -36,7 +37,8 @@ test(function () {
 test(function () {
     $control = new ControlMock();
 
-    $attrs = ['test' => 'aloha'];
+    $attrs = new Attributes();
+    $attrs->add('test', '12345');
     $out = $control->createElement($attrs);
 
     Assert::equal($attrs['test'], $out->test);
