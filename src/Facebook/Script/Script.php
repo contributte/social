@@ -26,11 +26,11 @@ class Script extends Control
     }
 
     /**
-     * @param int $appId
+     * @param string|float $appId
      */
     public function setAppId($appId)
     {
-        $this->appId = intval($appId);
+        $this->appId = $appId;
     }
 
     /** API *******************************************************************/
