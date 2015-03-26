@@ -16,8 +16,14 @@ Collection of facebook components override for Nette 2.2.0-2.3.0.
 |     Share Button     	| [source](https://github.com/minetro/social/blob/master/src/Social/Facebook/ShareButton/ShareButton.php) 	                |  [doc](https://developers.facebook.com/docs/plugins/share-button)         |
 |      Send Button     	| [source](https://github.com/minetro/social/blob/master/src/Social/Facebook/SendButton/SendButton.php) 	                |  [doc](https://developers.facebook.com/docs/plugins/send-button) 	        |
 |    Embedded Posts    	| [source](https://github.com/minetro/social/blob/master/src/Social/Facebook/EmbeddedPosts/EmbeddedPosts.php)               |  [doc](https://developers.facebook.com/docs/plugins/embedded-posts) 	    |
+|    Embedded Posts    	| [source](https://github.com/minetro/social/blob/master/src/Social/Facebook/EmbeddedVideos/EmbeddedVideos.php)             |  [doc](https://developers.facebook.com/docs/plugins/embedded-videos) 	    |
 |     Follow Button    	| [source](https://github.com/minetro/social/blob/master/src/Social/Facebook/FollowButton/FollowButton.php) 	            |  [doc](https://developers.facebook.com/docs/plugins/follow-button) 	    |
 |       Comments       	| [source](https://github.com/minetro/social/blob/master/src/Social/Facebook/Comments/Comments.php) 	                    |  [doc](https://developers.facebook.com/docs/plugins/comments) 	        |
+|       Page Plugin     | [source](https://github.com/minetro/social/blob/master/src/Social/Facebook/PagePlugin/PagePlugin.php) 	                |  [doc](https://developers.facebook.com/docs/plugins/page-plugin) 	        |
+
+### Deprecated
+| Plugin               	| Source 	| Docs 	|
+|----------------------	|--------	|------	|
 |     Activity Feed    	| [source](https://github.com/minetro/social/blob/master/src/Social/Facebook/ActivityFeed/ActivityFeed.php) 	            |  [doc](https://developers.facebook.com/docs/plugins/activity) 	        |
 | Recommendations Feed 	| [source](https://github.com/minetro/social/blob/master/src/Social/Facebook/RecommendationsFeed/RecommendationsFeed.php) 	|  [doc](https://developers.facebook.com/docs/plugins/recommendations) 	    |
 |       Like Box       	| [source](https://github.com/minetro/social/blob/master/src/Social/Facebook/LikeBox/LikeBox.php) 	                        |  [doc](https://developers.facebook.com/docs/plugins/like-box-for-pages) 	|
