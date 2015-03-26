@@ -9,6 +9,7 @@ use Nette\Utils\Html;
  *
  * @author Milan Felix Sulc <sulcmil@gmail.com>
  * @version 3.0
+ * @deprecated
  */
 class RecommendationsFeed extends Control
 {
