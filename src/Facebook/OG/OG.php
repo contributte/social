@@ -14,7 +14,7 @@ class OG extends Control
 {
 
     /** @var array */
-    private $tags;
+    private $tags = [];
 
     /**
      * @param string $name
@@ -63,6 +63,6 @@ class OG extends Control
 
     public function render()
     {
-        echo (string)$this->build();
+        return $this->build();
     }
 }

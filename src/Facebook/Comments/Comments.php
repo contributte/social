@@ -16,7 +16,7 @@ class Comments extends Control
     /** Shemes */
     const SCHEME_LIGHT = 'light';
     const SCHEME_DARK = 'dark';
-    
+
     /** API *******************************************************************/
 
     /**

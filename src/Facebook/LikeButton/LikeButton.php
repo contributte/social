@@ -37,7 +37,7 @@ class LikeButton extends Control
 
     public function render()
     {
-        echo (string) $this->build();
+        return $this->build();
     }
 
     public function renderFaces()

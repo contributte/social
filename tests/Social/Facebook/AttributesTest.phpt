@@ -26,6 +26,10 @@ test(function () {
     Assert::count(1, $attrs->getAttributes());
     Assert::count(1, $attrs);
 
+    $attrs->setAttributes([$name => $value]);
+    Assert::count(1, $attrs->getAttributes());
+    Assert::count(1, $attrs);
+
     $array = $attrs->getAttributes();
     Assert::equal($value, $array[$name]);
 });
@@ -41,6 +45,20 @@ test(function () {
     Assert::equal($value, $attrs->getAttributes()[$dataname]);
 });
 
+test(function () {
+    $attrs = new Attributes();
+
+    $name = 'test';
+    $value = 'value';
+    $attrs->offsetSet($name, $value);
+
+    Assert::equal($value, $attrs->offsetGet($name));
+
+    $attrs->offsetUnset($name);
+    Assert::error(function () use ($attrs, $name) {
+        $attrs->offsetGet($name);
+    }, 'E_NOTICE', 'Undefined index: ' . $name);
+});
 
 test(function () {
     $attrs = new Attributes();
@@ -62,10 +80,12 @@ test(function () {
 
     Assert::false(isset($attrs->test));
 
-    $value = 'test';
-    $attrs->test = $value;
-    Assert::true(isset($attrs->test));
-    Assert::equal($value, $attrs->test);
+    $name = 'test';
+    $value = 'value';
+    $attrs[$name] = $value;
+    Assert::true(isset($attrs[$name]));
+    Assert::equal($value, $attrs->{$name});
+    Assert::equal($value, $attrs->__get($name));
 });
 
 test(function () {

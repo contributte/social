@@ -1,6 +1,7 @@
 <?php
 
 namespace Minetro\Social\Facebook;
+
 use Nette\Utils\Html;
 
 /**
@@ -40,7 +41,7 @@ class Script extends Control
      */
     public function build()
     {
-        return NULL;
+        return Html::el();
     }
 
     /** RENDER ****************************************************************/
