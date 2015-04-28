@@ -37,6 +37,6 @@ class Facepile extends Control
 
     public function render()
     {
-        return $this->build();
+        echo $this->build();
     }
 }

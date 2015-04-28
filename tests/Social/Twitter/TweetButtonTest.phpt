@@ -63,8 +63,10 @@ test(function () {
 test(function () {
     $button = new TweetButton();
 
-    $res = $button->renderJs();
-    Assert::contains('text/javascript', (string)$res);
+    ob_start();
+    $button->renderJs();
+    Assert::contains('text/javascript', ob_get_contents());
+    ob_end_clean();
 });
 
 test(function () {
@@ -91,15 +93,17 @@ test(function () {
 test(function () {
     $button = new TweetButton();
     $url = 'http://google.com';
-    $res = $button->render($url);
 
-    Assert::type('Nette\Utils\Html', $res);
-    Assert::equal($url, $res->{'data-url'});
+    ob_start();
+    $button->render($url);
+    Assert::contains($url, ob_get_contents());
+    ob_end_clean();
 
     $url = 'http://google.cz';
     $button->setUrl($url);
-    $res = $button->render();
 
-    Assert::type('Nette\Utils\Html', $res);
-    Assert::equal($url, $res->{'data-url'});
+    ob_start();
+    $button->render();
+    Assert::contains($url, ob_get_contents());
+    ob_end_clean();
 });

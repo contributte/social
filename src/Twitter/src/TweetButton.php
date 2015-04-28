@@ -527,7 +527,7 @@ class TweetButton extends Control
             }
         }
 
-        return $el;
+        echo $el;
     }
 
     /**
@@ -540,7 +540,7 @@ class TweetButton extends Control
         $el = Html::el('script type="text/javascript"');
         $el->add('window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="' . self::TWITTER_PLATFORM_URL . '";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));');
 
-        return $el;
+        echo $el;
     }
 
 }

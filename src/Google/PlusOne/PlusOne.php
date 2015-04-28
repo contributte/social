@@ -273,7 +273,7 @@ class PlusOne extends Control
             }
         }
 
-        return $el;
+        echo $el;
     }
 
     /**
@@ -288,7 +288,7 @@ class PlusOne extends Control
             $el->src = self::GOOGLE_PLATFORM_URL;
             $el->add("{lang: '" . $this->lang . "'}");
 
-            return $el;
+            echo $el;
 
         } else if ($this->mode == self::MODE_EXPLICIT) {
             $wrapper = Html::el();
@@ -302,14 +302,14 @@ class PlusOne extends Control
             $el->add("gapi.plusone.go();");
             $wrapper->add($el);
 
-            return $wrapper;
+            echo $wrapper;
 
         } else if ($this->mode == self::MODE_DYNAMIC) {
             $el = Html::el('script type="text/javascript"');
             $el->add("window.___gcfg = {lang: '" . $this->lang . "'};");
             $el->add("(function(){var po=document.createElement('script');po.type='text/javascript';po.async=true;po.src='" . self::GOOGLE_PLATFORM_URL . "';vars=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po, s);})();");
 
-            return $el;
+            echo $el;
         }
 
         return NULL;

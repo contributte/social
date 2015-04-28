@@ -38,6 +38,8 @@ test(function () {
     $value = 'value1';
     $og->add($name, $value);
 
+    ob_start();
     $res = $og->render();
-    Assert::equal('<meta property="name1" content="value1">', (string)$res);
+    Assert::equal('<meta property="name1" content="value1">', ob_get_contents());
+    ob_end_clean();
 });

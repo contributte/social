@@ -27,6 +27,6 @@ class EmbeddedVideos extends Control
 
     public function render()
     {
-        echo (string)$this->build();
+        echo $this->build();
     }
 }
