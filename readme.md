@@ -1,7 +1,7 @@
 # Social
 
 [![Build Status](https://travis-ci.org/minetro/social.svg?branch=master)](https://travis-ci.org/minetro/social)
-[![Downloads this Month](https://img.shields.io/packagist/dm/minetro/social.svg?style=flat)](https://packagist.org/packages/minetro/social)
+[![Downloads total](https://img.shields.io/packagist/dt/minetro/social.svg?style=flat)](https://packagist.org/packages/minetro/social)
 [![Latest stable](https://img.shields.io/packagist/v/minetro/social.svg?style=flat)](https://packagist.org/packages/minetro/social)
 [![HHVM Status](https://img.shields.io/hhvm/minetro/social.svg?style=flat)](http://hhvm.h4cc.de/package/minetro/social)
 
