@@ -50,7 +50,7 @@ class OG extends Control
     {
         $wrapper = Html::el();
         foreach ($this->tags as $property => $content) {
-            $wrapper->add(Html::el('meta')->addAttributes([
+            $wrapper->addHtml(Html::el('meta')->addAttributes([
                 'property' => $property,
                 'content' => $content
             ]));

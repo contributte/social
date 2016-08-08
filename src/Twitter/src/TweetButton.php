@@ -493,7 +493,7 @@ class TweetButton extends Control
     {
         // Get HTML element
         $el = $this->getElementPrototype();
-        $el->add($this->getElementText());
+        $el->addText($this->getElementText());
         $el->href($this->getHref());
 
         // Set URL
@@ -538,7 +538,7 @@ class TweetButton extends Control
     public function renderJs()
     {
         $el = Html::el('script type="text/javascript"');
-        $el->add('window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="' . self::TWITTER_PLATFORM_URL . '";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));');
+        $el->addText('window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="' . self::TWITTER_PLATFORM_URL . '";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));');
 
         echo $el;
     }
