@@ -16,6 +16,9 @@ class Script extends Control
     /** @var int */
     private $appId;
 
+    /** @var string */
+    private $apiVersion = "v2.7";
+
     /** GETTERS/SETTERS *******************************************************/
 
     /**
@@ -34,6 +37,22 @@ class Script extends Control
         $this->appId = $appId;
     }
 
+    /**
+     * @return string
+     */
+    public function getApiVersion()
+    {
+        return $this->apiVersion;
+    }
+
+    /**
+     * @param string $apiVersion
+     */
+    public function setApiVersion($apiVersion)
+    {
+        $this->apiVersion = $apiVersion;
+    }
+
     /** API *******************************************************************/
 
     /**
@@ -50,6 +69,7 @@ class Script extends Control
     {
         $this->template->setFile(dirname(__FILE__) . '/script.latte');
         $this->template->appId = $this->getAppId();
+        $this->template->apiVersion = $this->getApiVersion();
         $this->template->render();
     }
 

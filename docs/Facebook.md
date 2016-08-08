@@ -65,7 +65,11 @@ protected function createComponentLikeButton()
  */
 protected function createComponentScript()
 {
-    return new Script();
+    $script = new Script();
+    $script->setApiVersion("v2.6");
+    $script->setAppId(123456);
+
+    return $script;
 }
 ```
 
