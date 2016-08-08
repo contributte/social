@@ -35,6 +35,15 @@
 
 ### Factory
 
+#### config.neon
+
+```
+services:
+    - Minetro\Social\Twitter\ITweetButtonFactory
+```
+
+#### Presenter
+
 ```php
 use Minetro\Social\Twitter\TweetButton;
 
