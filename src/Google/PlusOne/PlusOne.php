@@ -286,7 +286,7 @@ class PlusOne extends Control
         if ($this->mode == self::MODE_DEFAULT) {
             $el = Html::el('script type="text/javascript" async defer');
             $el->src = self::GOOGLE_PLATFORM_URL;
-            $el->add("{lang: '" . $this->lang . "'}");
+            $el->addText("{lang: '" . $this->lang . "'}");
 
             echo $el;
 
@@ -295,19 +295,19 @@ class PlusOne extends Control
 
             $el = Html::el('script type="text/javascript" async defer');
             $el->src = self::GOOGLE_PLATFORM_URL;
-            $el->add("{lang: '" . $this->lang . "', parsetags: 'explicit'}");
-            $wrapper->add($el);
+            $el->addText("{lang: '" . $this->lang . "', parsetags: 'explicit'}");
+            $wrapper->addHtml($el);
 
             $el = Html::el('script type="text/javascript"');
-            $el->add("gapi.plusone.go();");
-            $wrapper->add($el);
+            $el->addText("gapi.plusone.go();");
+            $wrapper->addHtml($el);
 
             echo $wrapper;
 
         } else if ($this->mode == self::MODE_DYNAMIC) {
             $el = Html::el('script type="text/javascript"');
-            $el->add("window.___gcfg = {lang: '" . $this->lang . "'};");
-            $el->add("(function(){var po=document.createElement('script');po.type='text/javascript';po.async=true;po.src='" . self::GOOGLE_PLATFORM_URL . "';vars=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po, s);})();");
+            $el->addText("window.___gcfg = {lang: '" . $this->lang . "'};");
+            $el->addText("(function(){var po=document.createElement('script');po.type='text/javascript';po.async=true;po.src='" . self::GOOGLE_PLATFORM_URL . "';vars=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po, s);})();");
 
             echo $el;
         }

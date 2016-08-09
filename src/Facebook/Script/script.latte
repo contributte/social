@@ -6,7 +6,7 @@
         if (d.getElementById(id)) return;
         js = d.createElement(s);
         js.id = id;
-        js.src = "//connect.facebook.net/cs_CZ/sdk.js#xfbml=1{{ifset $appId}}&appId={{$appId|noescape}}{{/ifset}}&version=v2.0";
+        js.src = "//connect.facebook.net/cs_CZ/sdk.js#xfbml=1{{ifset $appId}}&appId={{$appId|noescape}}{{/ifset}}&version={{$apiVersion|noescape}}";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
