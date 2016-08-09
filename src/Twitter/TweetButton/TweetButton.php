@@ -1,6 +1,6 @@
 <?php
 
-namespace Minetro\Social\Twitter;
+namespace Minetro\Social\Twitter\TweetButton;
 
 use Nette\Application\UI\Control;
 use Nette\Http\Url;
@@ -20,13 +20,13 @@ use Nette\Utils\Validators;
  * @property string $related
  * @property string $count
  * @property string $counturl
- * @property array  $hashtags
+ * @property array $hashtags
  * @property string $size
- * @property bool   $dnt
+ * @property bool $dnt
  * @property string $lang
- * @property Html   $elementPrototype
+ * @property Html $elementPrototype
  * @property string $elementText
- * @property array  $properties
+ * @property array $properties
  */
 class TweetButton extends Control
 {
@@ -168,6 +168,7 @@ class TweetButton extends Control
     {
         Validators::assert($url, 'string|url');
         $this->url = $url;
+
         return $this;
     }
 
@@ -187,6 +188,7 @@ class TweetButton extends Control
     {
         Validators::assert($href, 'string|url');
         $this->href = $href;
+
         return $this;
     }
 
@@ -205,6 +207,7 @@ class TweetButton extends Control
     public function setVia($via)
     {
         $this->via = $via;
+
         return $this;
     }
 
@@ -223,6 +226,7 @@ class TweetButton extends Control
     public function setText($text)
     {
         $this->text = $text;
+
         return $this;
     }
 
@@ -241,6 +245,7 @@ class TweetButton extends Control
     public function setRelated($related)
     {
         $this->related = $related;
+
         return $this;
     }
 
@@ -259,6 +264,7 @@ class TweetButton extends Control
     public function setCount($count)
     {
         $this->count = $count;
+
         return $this;
     }
 
@@ -278,6 +284,7 @@ class TweetButton extends Control
     {
         Validators::assert($counturl, 'string|url');
         $this->counturl = $counturl;
+
         return $this;
     }
 
@@ -296,6 +303,7 @@ class TweetButton extends Control
     public function setHashtags(array $hashtags)
     {
         $this->hashtags = $hashtags;
+
         return $this;
     }
 
@@ -306,6 +314,7 @@ class TweetButton extends Control
     public function addHashtag($hashtag)
     {
         $this->hashtags[] = $hashtag;
+
         return $this;
     }
 
@@ -324,6 +333,7 @@ class TweetButton extends Control
     public function setSize($size)
     {
         $this->size = $size;
+
         return $this;
     }
 
@@ -341,7 +351,8 @@ class TweetButton extends Control
      */
     public function setDnt($dnt)
     {
-        $this->dnt = (bool)$dnt;
+        $this->dnt = (bool) $dnt;
+
         return $this;
     }
 
@@ -360,6 +371,7 @@ class TweetButton extends Control
     public function setLang($lang)
     {
         $this->lang = $lang;
+
         return $this;
     }
 
@@ -378,6 +390,7 @@ class TweetButton extends Control
     public function setElementText($elementText)
     {
         $this->elementText = $elementText;
+
         return $this;
     }
 
@@ -412,6 +425,7 @@ class TweetButton extends Control
     public function setProperties(array $properties)
     {
         $this->properties = $properties;
+
         return $this;
     }
 
@@ -423,6 +437,7 @@ class TweetButton extends Control
     public function addProperty($name, $value)
     {
         $this->properties[$name] = $value;
+
         return $this;
     }
 
@@ -455,7 +470,7 @@ class TweetButton extends Control
         // Build URL
         $url = new Url(self::TWITTER_TWEET_URL);
         $url->setQueryParameter('screen_name', $mention);
-        $this->href = (string)$url;
+        $this->href = (string) $url;
 
         if ($mention) {
             $this->elementText = "Tweet to @$mention";
@@ -474,7 +489,7 @@ class TweetButton extends Control
         // Build URL
         $url = new Url(self::TWITTER_TWEET_URL);
         $url->setQueryParameter('button_hashtag', $hashtag);
-        $this->href = (string)$url;
+        $this->href = (string) $url;
 
         if ($hashtag) {
             $this->elementText = "Tweet #$hashtag";

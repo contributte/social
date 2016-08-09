@@ -1,7 +1,8 @@
 <?php
 
-namespace Minetro\Social\Facebook;
+namespace Minetro\Social\Facebook\PagePlugin;
 
+use Minetro\Social\Facebook\Control;
 use Nette\Utils\Html;
 
 /**

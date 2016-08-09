@@ -4,12 +4,11 @@
  * Test: PlusOneTest
  */
 
-use Minetro\Social\Google\PlusOne;
+use Minetro\Social\Google\PlusOne\PlusOne;
 use Nette\Utils\Html;
 use Tester\Assert;
-use Nette\Utils\Json;
 
-require __DIR__ . '/../../bootstrap.php';
+require __DIR__ . '/../../../bootstrap.php';
 
 test(function () {
     $p1 = new PlusOne();

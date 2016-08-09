@@ -1,6 +1,6 @@
 <?php
 
-namespace Minetro\Social\Twitter;
+namespace Minetro\Social\Twitter\TweetButton;
 
 /**
  * Twitter > tweet button factory interface

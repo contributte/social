@@ -1,6 +1,6 @@
 <?php
 
-namespace Minetro\Social\Google\Analytics;
+namespace Minetro\Social\Google\Analytics\Campaign;
 
 use InvalidArgumentException;
 
@@ -13,6 +13,7 @@ use InvalidArgumentException;
  */
 class Campaign
 {
+
     /** GA UTM FIELDS  */
     const UTM_SOURCE = 'utm_source';
     const UTM_MEDIUM = 'utm_medium';
@@ -208,6 +209,7 @@ class Campaign
     public static function create($source, $medium, $campaign, $term = NULL, $content = NULL)
     {
         $app = new Campaign($source, $medium, $campaign, $term, $content);
+
         return $app->build();
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Minetro\Social\Google;
+namespace Minetro\Social\Google\PlusOne;
 
 use Nette\Application\UI\Control;
 use Nette\Utils\Html;
@@ -17,11 +17,11 @@ use Nette\Utils\Validators;
  * @property string $annotation
  * @property string $callback
  * @property string $url
- * @property int    $mode
- * @property int    $width
+ * @property int $mode
+ * @property int $width
  * @property string $lang
- * @property Html   $elementPrototype
- * @property array  $properties
+ * @property Html $elementPrototype
+ * @property array $properties
  */
 class PlusOne extends Control
 {
@@ -86,6 +86,7 @@ class PlusOne extends Control
     public function setCallback($callback)
     {
         $this->callback = $callback;
+
         return $this;
     }
 
@@ -104,6 +105,7 @@ class PlusOne extends Control
     public function setMode($mode)
     {
         $this->mode = $mode;
+
         return $this;
     }
 
@@ -122,6 +124,7 @@ class PlusOne extends Control
     public function setLang($lang)
     {
         $this->lang = $lang;
+
         return $this;
     }
 
@@ -140,6 +143,7 @@ class PlusOne extends Control
     public function setSize($size)
     {
         $this->size = $size;
+
         return $this;
     }
 
@@ -159,6 +163,7 @@ class PlusOne extends Control
     {
         Validators::assert($url, 'string|url');
         $this->url = $url;
+
         return $this;
     }
 
@@ -177,6 +182,7 @@ class PlusOne extends Control
     public function setWidth($width)
     {
         $this->width = intval($width);
+
         return $this;
     }
 
@@ -219,6 +225,7 @@ class PlusOne extends Control
     public function setProperties(array $properties)
     {
         $this->properties = $properties;
+
         return $this;
     }
 
@@ -230,6 +237,7 @@ class PlusOne extends Control
     public function addProperty($name, $value)
     {
         $this->properties[$name] = $value;
+
         return $this;
     }
 

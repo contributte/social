@@ -1,7 +1,8 @@
 <?php
 
-namespace Minetro\Social\Facebook;
+namespace Minetro\Social\Facebook\OG;
 
+use Minetro\Social\Facebook\Control;
 use Nette\Utils\Html;
 
 /**
@@ -52,7 +53,7 @@ class OG extends Control
         foreach ($this->tags as $property => $content) {
             $wrapper->addHtml(Html::el('meta')->addAttributes([
                 'property' => $property,
-                'content' => $content
+                'content' => $content,
             ]));
         }
 

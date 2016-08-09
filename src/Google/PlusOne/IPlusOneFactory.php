@@ -1,6 +1,6 @@
 <?php
 
-namespace Minetro\Social\Google;
+namespace Minetro\Social\Google\PlusOne;
 
 /**
  * Google +1 component factory interface

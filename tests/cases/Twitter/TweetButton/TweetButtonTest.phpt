@@ -4,11 +4,11 @@
  * Test: TweetButtonTest
  */
 
-use Minetro\Social\Twitter\TweetButton;
+use Minetro\Social\Twitter\TweetButton\TweetButton;
 use Nette\Utils\Html;
 use Tester\Assert;
 
-require __DIR__ . '/../../bootstrap.php';
+require __DIR__ . '/../../../bootstrap.php';
 
 test(function () {
     $button = new TweetButton();

@@ -4,10 +4,10 @@
  * Test: OGTest
  */
 
-use Minetro\Social\Facebook\OG;
+use Minetro\Social\Facebook\OG\OG;
 use Tester\Assert;
 
-require __DIR__ . '/../../bootstrap.php';
+require __DIR__ . '/../../../bootstrap.php';
 
 test(function () {
     $og = new OG();

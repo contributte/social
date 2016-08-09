@@ -4,10 +4,10 @@
  * Test: ScriptTest
  */
 
-use Minetro\Social\Facebook\Script;
+use Minetro\Social\Facebook\Script\Script;
 use Tester\Assert;
 
-require __DIR__ . '/../../bootstrap.php';
+require __DIR__ . '/../../../bootstrap.php';
 
 test(function () {
     $script = new Script();
