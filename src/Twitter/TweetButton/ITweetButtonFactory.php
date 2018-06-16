@@ -1,18 +1,13 @@
-<?php
+<?php declare(strict_types = 1);
 
-namespace Minetro\Social\Twitter\TweetButton;
+namespace Contributte\Social\Twitter\TweetButton;
 
 /**
  * Twitter > tweet button factory interface
- *
- * @author Milan Felix Sulc <rkfelix@gmail.com>
- * @version 1.0
  */
 interface ITweetButtonFactory
 {
 
-    /**
-     * @return TweetButton
-     */
-    function create();
+	public function create(): TweetButton;
+
 }

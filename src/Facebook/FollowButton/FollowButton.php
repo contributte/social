@@ -1,43 +1,38 @@
-<?php
+<?php declare(strict_types = 1);
 
-namespace Minetro\Social\Facebook\FollowButton;
+namespace Contributte\Social\Facebook\FollowButton;
 
-use Minetro\Social\Facebook\Control;
+use Contributte\Social\Facebook\Control;
 use Nette\Utils\Html;
 
 /**
  * FollowButton control
- *
- * @author Milan Felix Sulc <sulcmil@gmail.com>
- * @version 3.0
  */
 class FollowButton extends Control
 {
 
-    /** Layouts */
-    const LAYOUT_STANDARD = 'standard';
-    const LAYOUT_BOX_COUNT = 'box_count';
-    const LAYOUT_BUTTON_COUNT = 'button_count';
-    const LAYOUT_BUTTON = 'button';
+	/** Layouts */
+	public const LAYOUT_STANDARD = 'standard';
+	public const LAYOUT_BOX_COUNT = 'box_count';
+	public const LAYOUT_BUTTON_COUNT = 'button_count';
+	public const LAYOUT_BUTTON = 'button';
 
-    /** Shemes */
-    const SCHEME_LIGHT = 'light';
-    const SCHEME_DARK = 'dark';
+	/** Shemes */
+	public const SCHEME_LIGHT = 'light';
+	public const SCHEME_DARK = 'dark';
 
-    /** API *******************************************************************/
+	/** API *******************************************************************/
 
-    /**
-     * @return Html
-     */
-    public function build()
-    {
-        return $this->createElement($this->attributes);
-    }
+	public function build(): Html
+	{
+		return $this->createElement($this->attributes);
+	}
 
-    /** RENDERS ***************************************************************/
+	/** RENDERS ***************************************************************/
 
-    public function render()
-    {
-        echo $this->build();
-    }
+	public function render(): void
+	{
+		echo $this->build();
+	}
+
 }

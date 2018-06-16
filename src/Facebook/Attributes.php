@@ -1,6 +1,6 @@
-<?php
+<?php declare(strict_types = 1);
 
-namespace Minetro\Social\Facebook;
+namespace Contributte\Social\Facebook;
 
 use ArrayAccess;
 use ArrayIterator;
@@ -10,116 +10,93 @@ use Nette\MemberAccessException;
 
 /**
  * Attributes
- *
- * @author Milan Felix Sulc <sulcmil@gmail.com>
- * @version 3.0
  */
 class Attributes implements Countable, ArrayAccess, IteratorAggregate
 {
 
-    /** @var array */
-    private $attrs = [];
+	/** @var mixed[] */
+	private $attrs = [];
 
-    /** GETTERS/SETTERS *******************************************************/
+	/** GETTERS/SETTERS *******************************************************/
 
-    /**
-     * @param string $name
-     * @param string $value
-     */
-    public function add($name, $value)
-    {
-        $this->attrs[$name] = $value;
-    }
+	public function add(string $name, string $value): void
+	{
+		$this->attrs[$name] = $value;
+	}
 
-    /**
-     * @param string $name
-     * @param string $value
-     */
-    public function data($name, $value)
-    {
-        $this->attrs["data-$name"] = $value;
-    }
+	public function data(string $name, string $value): void
+	{
+		$this->attrs['data-' . $name] = $value;
+	}
 
-    /**
-     * @return array
-     */
-    public function getAttributes()
-    {
-        return $this->attrs;
-    }
+	/**
+	 * @return mixed[]
+	 */
+	public function getAttributes(): array
+	{
+		return $this->attrs;
+	}
 
-    /**
-     * @param array $attrs
-     */
-    public function setAttributes($attrs)
-    {
-        $this->attrs = $attrs;
-    }
+	/**
+	 * @param mixed[] $attrs
+	 */
+	public function setAttributes(array $attrs): void
+	{
+		$this->attrs = $attrs;
+	}
 
+	/** COUNTABLE *************************************************************/
 
-    /** COUNTABLE *************************************************************/
+	public function count(): int
+	{
+		return count($this->attrs);
+	}
 
-    /**
-     * @return int
-     */
-    public function count()
-    {
-        return count($this->attrs);
-    }
+	/** ARRAY ACCESS **********************************************************/
 
-    /** ARRAY ACCESS **********************************************************/
+	public function offsetExists($offset): bool
+	{
+		return isset($this->attrs[$offset]);
+	}
 
-    /**
-     * @return boolean
-     */
-    public function offsetExists($offset)
-    {
-        return isset($this->attrs[$offset]);
-    }
+	/**
+	 * @return mixed
+	 */
+	public function offsetGet($offset)
+	{
+		return $this->attrs[$offset];
+	}
 
-    /**
-     * @return mixed
-     */
-    public function offsetGet($offset)
-    {
-        return $this->attrs[$offset];
-    }
+	public function offsetSet($offset, $value): void
+	{
+		$this->attrs[$offset] = $value;
+	}
 
-    /**
-     * @return void
-     */
-    public function offsetSet($offset, $value)
-    {
-        $this->attrs[$offset] = $value;
-    }
+	public function offsetUnset($offset): void
+	{
+		unset($this->attrs[$offset]);
+	}
 
-    /**
-     * @return void
-     */
-    public function offsetUnset($offset)
-    {
-        unset($this->attrs[$offset]);
-    }
+	/** ARRAY ACCESS **********************************************************/
 
-    /** ARRAY ACCESS **********************************************************/
+	public function getIterator(): ArrayIterator
+	{
+		return new ArrayIterator($this->attrs);
+	}
 
-    /**
-     * @return ArrayIterator
-     */
-    public function getIterator()
-    {
-        return new ArrayIterator($this->attrs);
-    }
+	/** MAGIC *****************************************************************/
 
-    /** MAGIC *****************************************************************/
-
-    function __get($name)
-    {
-        if ($this->offsetExists($name)) {
-            return $this->offsetGet($name);
-        } else {
-            throw new MemberAccessException("Cannot read attribute $name");
-        }
-    }
+	/**
+	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
+	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
+	 */
+	public function __get($name)
+	{
+		if ($this->offsetExists($name)) {
+			return $this->offsetGet($name);
+		} else {
+			throw new MemberAccessException(sprintf('Cannot read attribute %s', $name));
+		}
+	}
 
 }

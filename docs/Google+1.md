@@ -1,12 +1,7 @@
 # Google +1
 
-## Info
-
-* @version 2.0
-* @author Milan Felix Sulc <sulcmil@gmail.com>
-* @doc https://developers.google.com/+/web/+1button/
-
 ## Settings
+
 | Type   | Field               | Default               | Setter/Getter | Info                     |
 |--------|---------------------|-----------------------|---------------|--------------------------|
 | string | `$size`             | standard              | yes/yes       |                          |
@@ -22,7 +17,7 @@
 ## Factory
 
 ```php
-use Minetro\Social\Google\PlusOne;
+use Contributte\Social\Google\PlusOne;
 
 protected function createComponentPlusone() {
     $button = new PlusOne();
@@ -34,7 +29,7 @@ protected function createComponentPlusone() {
 ```
 
 ```php
-/** @var Minetro\Social\Google\IPlusOneFactory @inject */
+/** @var Contributte\Social\Google\IPlusOneFactory @inject */
 public $plusOneFactory;
 
 protected function createComponentPlusone() {

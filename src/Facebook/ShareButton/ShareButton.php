@@ -1,42 +1,36 @@
-<?php
+<?php declare(strict_types = 1);
 
-namespace Minetro\Social\Facebook\ShareButton;
+namespace Contributte\Social\Facebook\ShareButton;
 
-use Minetro\Social\Facebook\Control;
+use Contributte\Social\Facebook\Control;
 use Nette\Utils\Html;
 
 /**
  * ShareButton control
- *
- * @author Milan Felix Sulc <sulcmil@gmail.com>
- * @version 3.0
  */
 class ShareButton extends Control
 {
 
-    /** Layouts */
-    const LAYOUT_BOX_COUNT = 'box_count';
-    const LAYOUT_BUTTON_COUNT = 'button_count';
-    const LAYOUT_BUTTON = 'button';
-    const LAYOUT_ICON_LINK = 'icon_link';
-    const LAYOUT_ICON = 'icon';
-    const LAYOUT_LINK = 'link';
+	/** Layouts */
+	public const LAYOUT_BOX_COUNT = 'box_count';
+	public const LAYOUT_BUTTON_COUNT = 'button_count';
+	public const LAYOUT_BUTTON = 'button';
+	public const LAYOUT_ICON_LINK = 'icon_link';
+	public const LAYOUT_ICON = 'icon';
+	public const LAYOUT_LINK = 'link';
 
-    /** API *******************************************************************/
+	/** API *******************************************************************/
 
-    /**
-     * @return Html
-     */
-    public function build()
-    {
-        return $this->createElement($this->attributes);
-    }
+	public function build(): Html
+	{
+		return $this->createElement($this->attributes);
+	}
 
-    /** RENDERS ***************************************************************/
+	/** RENDERS ***************************************************************/
 
-    public function render()
-    {
-        echo $this->build();
-    }
+	public function render(): void
+	{
+		echo $this->build();
+	}
 
 }

@@ -2,11 +2,6 @@
 
 Small utility for creating GA accepted parameters to url.
 
-## Info
-
-* @version 1.2
-* @author Milan Felix Sulc <sulcmil@gmail.com>
-
 ## Parameters
 
 - source
@@ -18,7 +13,7 @@ Small utility for creating GA accepted parameters to url.
 ## Usage
 
 ```php
-use Minetro\Social\Google\Analytics\Campaign;
+use Contributte\Social\Google\Analytics\Campaign;
 
 // Source, medium, campaign
 $campaign = new Campaign('newsletter', 'website', 'april13');

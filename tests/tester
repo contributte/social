@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-sh ../vendor/bin/tester Social -s -j 40 -log social.log $@
-rm "./tmp" -f -R

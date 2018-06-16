@@ -2,12 +2,6 @@
 
 ## TweetButton
 
-### Info
-
-* @version 1.0
-* @author Milan Felix Sulc
-* @doc https://dev.twitter.com/web/tweet-button
-
 ### Settings
 
 | Type   | Field               | Default                   | Setter/Getter | Info                     |
@@ -39,13 +33,13 @@
 
 ```
 services:
-    - Minetro\Social\Twitter\ITweetButtonFactory
+    - Contributte\Social\Twitter\ITweetButtonFactory
 ```
 
 #### Presenter
 
 ```php
-use Minetro\Social\Twitter\TweetButton;
+use Contributte\Social\Twitter\TweetButton;
 
 /**
   * @return TweetButton
@@ -58,7 +52,7 @@ protected function createComponentPlusone() {
 ```
 
 ```php
-/** @var Minetro\Social\Twitter\ITweetButtonFactory @inject */
+/** @var Contributte\Social\Twitter\ITweetButtonFactory @inject */
 public $twitterFactory;
 
 /**

@@ -1,26 +1,58 @@
 {
-  "name": "minetro/social",
-  "description": "Social plugins for Nette",
+  "name": "contributte/social",
+  "description": "Social plugins for Nette Framework",
   "type": "library",
-  "license": ["BSD-3-Clause"],
-  "homepage": "https://github.com/minetro/social",
+  "license": ["MIR"],
+  "homepage": "https://github.com/contributte/social",
   "authors": [
     {
       "name": "Milan Felix Sulc",
-      "homepage": "http://jfx.cz"
+      "homepage": "https://f3l1x.io"
     }
   ],
   "require": {
-    "php": ">=5.6.0",
-    "nette/utils": ">=2.4.0",
-    "nette/application": ">=2.4.0"
+    "php": ">= 7.1",
+    "nette/application": "~2.4.12",
+    "nette/utils": "~2.5.2"
   },
   "require-dev": {
-    "nette/tester": "~1.7.0"
+    "ninjify/qa": "^0.8.0",
+    "ninjify/nunjuck": "^0.2.0"
+  },
+  "conflict": {
+    "nette/http": "<=2.4.0"
   },
   "autoload": {
     "psr-4": {
-      "Minetro\\Social\\": "src"
+      "Contributte\\Social\\": "src"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "qa": [
+      "linter src tests",
+      "codesniffer src tests"
+    ],
+    "tester": [
+      "tester -s -p php --colors 1 -C tests/cases"
+    ],
+    "coverage": [
+      "tester -s -p php --colors 1 -C -d extension=xdebug.so --coverage ./coverage.xml --coverage-src ./src tests/cases"
+    ],
+    "phpstan-install": [
+      "mkdir -p temp/phpstan",
+      "composer require -d temp/phpstan phpstan/phpstan:0.9.2",
+      "composer require -d temp/phpstan phpstan/phpstan-nette:0.9",
+      "composer require -d temp/phpstan phpstan/phpstan-strict-rules:0.9"
+    ],
+    "phpstan": [
+      "temp/phpstan/vendor/bin/phpstan analyse -l max -c phpstan.neon src"
+    ]
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "2.0.x-dev"
     }
   }
 }

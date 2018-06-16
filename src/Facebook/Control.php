@@ -1,6 +1,6 @@
-<?php
+<?php declare(strict_types = 1);
 
-namespace Minetro\Social\Facebook;
+namespace Contributte\Social\Facebook;
 
 use Nette\Application\UI\Control as NetteControl;
 use Nette\ComponentModel\IContainer;
@@ -8,58 +8,47 @@ use Nette\Utils\Html;
 
 /**
  * Abstract control for facebook plugins
- *
- * @author Milan Felix Sulc <sulcmil@gmail.com>
- * @version 3.0
  */
 abstract class Control extends NetteControl
 {
 
-    /** @var Attributes */
-    protected $attributes;
+	/** @var Attributes */
+	protected $attributes;
 
-    /**
-     * @param IContainer $parent
-     * @param string $name
-     */
-    public function __construct(IContainer $parent = NULL, $name = NULL)
-    {
-        parent::__construct($parent, $name);
-        $this->attributes = new Attributes();
-    }
+	/**
+	 * @param string $name
+	 */
+	public function __construct(?IContainer $parent = null, $name = null)
+	{
+		parent::__construct($parent, $name);
+		$this->attributes = new Attributes();
+	}
 
-    /** GETTERS ***************************************************************/
+	/** GETTERS ***************************************************************/
 
-    /**
-     * @return Attributes
-     */
-    public function getAttributes()
-    {
-        return $this->attributes;
-    }
+	public function getAttributes(): Attributes
+	{
+		return $this->attributes;
+	}
 
-    /** HELPERS ***************************************************************/
+	/** HELPERS ***************************************************************/
 
-    /**
-     * @param Attributes|array $attributes
-     * @return Html
-     */
-    protected function createElement($attributes)
-    {
-        $el = Html::el('div');
+	/**
+	 * @param Attributes|mixed[] $attributes
+	 */
+	protected function createElement($attributes): Html
+	{
+		$el = Html::el('div');
 
-        foreach ($attributes as $key => $val) {
-            $el->$key = $val;
-        }
+		foreach ($attributes as $key => $val) {
+			$el->$key = $val;
+		}
 
-        return $el;
-    }
+		return $el;
+	}
 
-    /** ABSTRACT **************************************************************/
+	/** ABSTRACT **************************************************************/
 
-    /**
-     * @return Html
-     */
-    abstract function build();
+	abstract public function build(): Html;
 
 }

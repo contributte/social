@@ -1,69 +1,64 @@
-<?php
+<?php declare(strict_types = 1);
 
-namespace Minetro\Social\Facebook\OG;
+namespace Contributte\Social\Facebook\OG;
 
-use Minetro\Social\Facebook\Control;
+use Contributte\Social\Facebook\Control;
 use Nette\Utils\Html;
 
 /**
  * OpenGraph control
- *
- * @author Milan Felix Sulc <sulcmil@gmail.com>
- * @version 3.0
  */
 class OG extends Control
 {
 
-    /** @var array */
-    private $tags = [];
+	/** @var string[] */
+	private $tags = [];
 
-    /**
-     * @param string $name
-     * @param string $value
-     */
-    public function add($name, $value)
-    {
-        $this->tags[$name] = $value;
-    }
+	/**
+	 * @param string $name
+	 * @param string $value
+	 */
+	public function add($name, $value): void
+	{
+		$this->tags[$name] = $value;
+	}
 
-    /**
-     * @return array
-     */
-    public function getTags()
-    {
-        return $this->tags;
-    }
+	/**
+	 * @return string[]
+	 */
+	public function getTags(): array
+	{
+		return $this->tags;
+	}
 
-    /**
-     * @param array $tags
-     */
-    public function setTags($tags)
-    {
-        $this->tags = $tags;
-    }
+	/**
+	 * @param string[] $tags
+	 */
+	public function setTags(array $tags): void
+	{
+		$this->tags = $tags;
+	}
 
-    /** API ********************************************************************/
+	/** API ********************************************************************/
 
-    /**
-     * @return Html
-     */
-    public function build()
-    {
-        $wrapper = Html::el();
-        foreach ($this->tags as $property => $content) {
-            $wrapper->addHtml(Html::el('meta')->addAttributes([
-                'property' => $property,
-                'content' => $content,
-            ]));
-        }
+	public function build(): Html
+	{
+		$wrapper = Html::el();
+		foreach ($this->tags as $property => $content) {
+			$wrapper->addHtml(Html::el('meta')->addAttributes([
+				'property' => $property,
+				'content' => $content,
+			]));
+		}
 
-        return $wrapper;
-    }
+		return $wrapper;
+	}
 
-    /** RENDERS ***************************************************************/
+	/** RENDERS ***************************************************************/
 
-    public function render()
-    {
-        echo $this->build();
-    }
+	public function render(): void
+	{
+		echo $this->build();
+	}
+
 }

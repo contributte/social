@@ -1,39 +1,34 @@
-<?php
+<?php declare(strict_types = 1);
 
-namespace Minetro\Social\Facebook\ActivityFeed;
+namespace Contributte\Social\Facebook\ActivityFeed;
 
-use Minetro\Social\Facebook\Control;
+use Contributte\Social\Facebook\Control;
 use Nette\Utils\Html;
 
 /**
  * ActivityFeed control
  *
- * @author Milan Felix Sulc <sulcmil@gmail.com>
- * @version 3.0
  * @deprecated
  */
 class ActivityFeed extends Control
 {
 
-    /** Shemes */
-    const SCHEME_LIGHT = 'light';
-    const SCHEME_DARK = 'dark';
+	/** Shemes */
+	public const SCHEME_LIGHT = 'light';
+	public const SCHEME_DARK = 'dark';
 
-    /** API *******************************************************************/
+	/** API *******************************************************************/
 
-    /**
-     * @return Html
-     */
-    public function build()
-    {
-        return $this->createElement($this->attributes);
-    }
+	public function build(): Html
+	{
+		return $this->createElement($this->attributes);
+	}
 
-    /** RENDERS ***************************************************************/
+	/** RENDERS ***************************************************************/
 
-    public function render()
-    {
-        echo $this->build();
-    }
+	public function render(): void
+	{
+		echo $this->build();
+	}
 
 }

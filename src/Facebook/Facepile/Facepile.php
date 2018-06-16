@@ -1,43 +1,39 @@
-<?php
+<?php declare(strict_types = 1);
 
-namespace Minetro\Social\Facebook\Facepile;
+namespace Contributte\Social\Facebook\Facepile;
 
-use Minetro\Social\Facebook\Control;
+use Contributte\Social\Facebook\Control;
 use Nette\Utils\Html;
 
 /**
  * Facepile control
  *
- * @author Milan Felix Sulc <sulcmil@gmail.com>
- * @version 3.0
  * @deprecated
  */
 class Facepile extends Control
 {
 
-    /** Shemes */
-    const SCHEME_LIGHT = 'light';
-    const SCHEME_DARK = 'dark';
+	/** Shemes */
+	public const SCHEME_LIGHT = 'light';
+	public const SCHEME_DARK = 'dark';
 
-    /** Photo sizes */
-    const SIZE_LARGE = 'large';
-    const SIZE_MEDIUM = 'medium';
-    const SIZE_SMALL = 'small';
+	/** Photo sizes */
+	public const SIZE_LARGE = 'large';
+	public const SIZE_MEDIUM = 'medium';
+	public const SIZE_SMALL = 'small';
 
-    /** API *******************************************************************/
+	/** API *******************************************************************/
 
-    /**
-     * @return Html
-     */
-    public function build()
-    {
-        return $this->createElement($this->attributes);
-    }
+	public function build(): Html
+	{
+		return $this->createElement($this->attributes);
+	}
 
-    /** RENDERS ***************************************************************/
+	/** RENDERS ***************************************************************/
 
-    public function render()
-    {
-        echo $this->build();
-    }
+	public function render(): void
+	{
+		echo $this->build();
+	}
+
 }

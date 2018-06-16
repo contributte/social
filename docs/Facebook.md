@@ -1,45 +1,36 @@
 # Social\Facebook
 
-Collection of facebook components override for Nette 2.2.0-2.3.0.
-
-## Info
-
-* @version 3.0
-* @author Milan Felix Sulc <sulcmil@gmail.com>
-* @doc https://developers.facebook.com/docs/plugins
+Collection of facebook components for Nette 2.4.0.
 
 ## Plugins
 
 | Plugin               	| Source 	| Docs 	|
 |----------------------	|--------	|------	|
-|      Like Button     	| [source](https://github.com/minetro/social/blob/master/src/Facebook/LikeButton/LikeButton.php) 	                |  [doc](https://developers.facebook.com/docs/plugins/like-button) 	        |
-|     Share Button     	| [source](https://github.com/minetro/social/blob/master/src/Facebook/ShareButton/ShareButton.php) 	                |  [doc](https://developers.facebook.com/docs/plugins/share-button)         |
-|      Send Button     	| [source](https://github.com/minetro/social/blob/master/src/Facebook/SendButton/SendButton.php) 	                |  [doc](https://developers.facebook.com/docs/plugins/send-button) 	        |
-|    Embedded Posts    	| [source](https://github.com/minetro/social/blob/master/src/Facebook/EmbeddedPosts/EmbeddedPosts.php)               |  [doc](https://developers.facebook.com/docs/plugins/embedded-posts) 	    |
-|    Embedded Videos   	| [source](https://github.com/minetro/social/blob/master/src/Facebook/EmbeddedVideos/EmbeddedVideos.php)             |  [doc](https://developers.facebook.com/docs/plugins/embedded-videos) 	    |
-|     Follow Button    	| [source](https://github.com/minetro/social/blob/master/src/Facebook/FollowButton/FollowButton.php) 	            |  [doc](https://developers.facebook.com/docs/plugins/follow-button) 	    |
-|       Comments       	| [source](https://github.com/minetro/social/blob/master/src/Facebook/Comments/Comments.php) 	                    |  [doc](https://developers.facebook.com/docs/plugins/comments) 	        |
-|       Page Plugin     | [source](https://github.com/minetro/social/blob/master/src/Facebook/PagePlugin/PagePlugin.php) 	                |  [doc](https://developers.facebook.com/docs/plugins/page-plugin) 	        |
+|      Like Button     	| [source](https://github.com/Contributte/social/blob/master/src/Facebook/LikeButton/LikeButton.php) 	                |  [doc](https://developers.facebook.com/docs/plugins/like-button) 	        |
+|     Share Button     	| [source](https://github.com/Contributte/social/blob/master/src/Facebook/ShareButton/ShareButton.php) 	                |  [doc](https://developers.facebook.com/docs/plugins/share-button)         |
+|      Send Button     	| [source](https://github.com/Contributte/social/blob/master/src/Facebook/SendButton/SendButton.php) 	                |  [doc](https://developers.facebook.com/docs/plugins/send-button) 	        |
+|    Embedded Posts    	| [source](https://github.com/Contributte/social/blob/master/src/Facebook/EmbeddedPosts/EmbeddedPosts.php)               |  [doc](https://developers.facebook.com/docs/plugins/embedded-posts) 	    |
+|    Embedded Videos   	| [source](https://github.com/Contributte/social/blob/master/src/Facebook/EmbeddedVideos/EmbeddedVideos.php)             |  [doc](https://developers.facebook.com/docs/plugins/embedded-videos) 	    |
+|     Follow Button    	| [source](https://github.com/Contributte/social/blob/master/src/Facebook/FollowButton/FollowButton.php) 	            |  [doc](https://developers.facebook.com/docs/plugins/follow-button) 	    |
+|       Comments       	| [source](https://github.com/Contributte/social/blob/master/src/Facebook/Comments/Comments.php) 	                    |  [doc](https://developers.facebook.com/docs/plugins/comments) 	        |
+|       Page Plugin     | [source](https://github.com/Contributte/social/blob/master/src/Facebook/PagePlugin/PagePlugin.php) 	                |  [doc](https://developers.facebook.com/docs/plugins/page-plugin) 	        |
 
 ### Deprecated
 | Plugin               	| Source 	| Docs 	|
 |----------------------	|--------	|------	|
-|     Activity Feed    	| [source](https://github.com/minetro/social/blob/master/src/Facebook/ActivityFeed/ActivityFeed.php) 	            |  [doc](https://developers.facebook.com/docs/plugins/activity) 	        |
-| Recommendations Feed 	| [source](https://github.com/minetro/social/blob/master/src/Facebook/RecommendationsFeed/RecommendationsFeed.php) 	|  [doc](https://developers.facebook.com/docs/plugins/recommendations) 	    |
-|       Like Box       	| [source](https://github.com/minetro/social/blob/master/src/Facebook/LikeBox/LikeBox.php) 	                        |  [doc](https://developers.facebook.com/docs/plugins/like-box-for-pages) 	|
-|       Facepile       	| [source](https://github.com/minetro/social/blob/master/src/Facebook/Facepile/Facepile.php) 	                    |  [doc](https://developers.facebook.com/docs/plugins/facepile) 	        |
+|     Activity Feed    	| [source](https://github.com/Contributte/social/blob/master/src/Facebook/ActivityFeed/ActivityFeed.php) 	            |  [doc](https://developers.facebook.com/docs/plugins/activity) 	        |
+| Recommendations Feed 	| [source](https://github.com/Contributte/social/blob/master/src/Facebook/RecommendationsFeed/RecommendationsFeed.php) 	|  [doc](https://developers.facebook.com/docs/plugins/recommendations) 	    |
+|       Like Box       	| [source](https://github.com/Contributte/social/blob/master/src/Facebook/LikeBox/LikeBox.php) 	                        |  [doc](https://developers.facebook.com/docs/plugins/like-box-for-pages) 	|
+|       Facepile       	| [source](https://github.com/Contributte/social/blob/master/src/Facebook/Facepile/Facepile.php) 	                    |  [doc](https://developers.facebook.com/docs/plugins/facepile) 	        |
 
 ## Usage
 
 ### Presenter
 
 ```php
-use Minetro\Social\Facebook\LikeButton;
-use Minetro\Social\Facebook\Script;
+use Contributte\Social\Facebook\LikeButton;
+use Contributte\Social\Facebook\Script;
 
-/**
- * @return LikeButton
- */
 protected function createComponentLikeButton()
 {
     $button = new LikeButton();
@@ -60,9 +51,6 @@ protected function createComponentLikeButton()
     return $button;
 }
 
-/**
- * @return Script
- */
 protected function createComponentScript()
 {
     $script = new Script();

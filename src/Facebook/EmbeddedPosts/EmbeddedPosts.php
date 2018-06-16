@@ -1,33 +1,28 @@
-<?php
+<?php declare(strict_types = 1);
 
-namespace Minetro\Social\Facebook\EmbeddedPosts;
+namespace Contributte\Social\Facebook\EmbeddedPosts;
 
-use Minetro\Social\Facebook\Control;
+use Contributte\Social\Facebook\Control;
 use Nette\Utils\Html;
 
 /**
  * EmbeddedPosts control
- *
- * @author Milan Felix Sulc <sulcmil@gmail.com>
- * @version 3.0
  */
 class EmbeddedPosts extends Control
 {
 
-    /** API *******************************************************************/
+	/** API *******************************************************************/
 
-    /**
-     * @return Html
-     */
-    public function build()
-    {
-        return $this->createElement($this->attributes);
-    }
+	public function build(): Html
+	{
+		return $this->createElement($this->attributes);
+	}
 
-    /** RENDERS ***************************************************************/
+	/** RENDERS ***************************************************************/
 
-    public function render()
-    {
-        echo $this->build();
-    }
+	public function render(): void
+	{
+		echo $this->build();
+	}
+
 }
