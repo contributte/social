@@ -2,7 +2,7 @@
   "name": "contributte/social",
   "description": "Social plugins for Nette Framework",
   "type": "library",
-  "license": ["MIR"],
+  "license": ["MIT"],
   "homepage": "https://github.com/contributte/social",
   "authors": [
     {
