@@ -11,7 +11,7 @@ use Nette\Utils\Html;
 class Script extends Control
 {
 
-	/** @var int */
+	/** @var string|int|float */
 	private $appId;
 
 	/** @var string */
@@ -19,13 +19,16 @@ class Script extends Control
 
 	/** GETTERS/SETTERS *******************************************************/
 
-	public function getAppId(): int
+	/**
+	 * @return string|int|float
+	 */
+	public function getAppId()
 	{
 		return $this->appId;
 	}
 
 	/**
-	 * @param string|float $appId
+	 * @param string|int|float $appId
 	 */
 	public function setAppId($appId): void
 	{
@@ -56,7 +59,7 @@ class Script extends Control
 
 	public function render(): void
 	{
-		$this->template->setFile(dirname(__FILE__) . '/script.latte');
+		$this->template->setFile(__DIR__ . '/script.latte');
 		$this->template->appId = $this->getAppId();
 		$this->template->apiVersion = $this->getApiVersion();
 		$this->template->render();

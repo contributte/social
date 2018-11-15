@@ -3,11 +3,14 @@
 namespace Contributte\Social\Facebook;
 
 use Nette\Application\UI\Control as NetteControl;
+use Nette\Bridges\ApplicationLatte\Template;
 use Nette\ComponentModel\IContainer;
 use Nette\Utils\Html;
 
 /**
  * Abstract control for facebook plugins
+ *
+ * @property-read Template $template
  */
 abstract class Control extends NetteControl
 {
