@@ -19,12 +19,18 @@ class Attributes implements Countable, ArrayAccess, IteratorAggregate
 
 	/** GETTERS/SETTERS *******************************************************/
 
-	public function add(string $name, string $value): void
+	/**
+	 * @param mixed $value
+	 */
+	public function add(string $name, $value): void
 	{
 		$this->attrs[$name] = $value;
 	}
 
-	public function data(string $name, string $value): void
+	/**
+	 * @param mixed $value
+	 */
+	public function data(string $name, $value): void
 	{
 		$this->attrs['data-' . $name] = $value;
 	}
@@ -54,12 +60,16 @@ class Attributes implements Countable, ArrayAccess, IteratorAggregate
 
 	/** ARRAY ACCESS **********************************************************/
 
+	/**
+	 * @param mixed $offset
+	 */
 	public function offsetExists($offset): bool
 	{
 		return isset($this->attrs[$offset]);
 	}
 
 	/**
+	 * @param mixed $offset
 	 * @return mixed
 	 */
 	public function offsetGet($offset)
@@ -67,11 +77,18 @@ class Attributes implements Countable, ArrayAccess, IteratorAggregate
 		return $this->attrs[$offset];
 	}
 
+	/**
+	 * @param mixed $offset
+	 * @param mixed $value
+	 */
 	public function offsetSet($offset, $value): void
 	{
 		$this->attrs[$offset] = $value;
 	}
 
+	/**
+	 * @param mixed $offset
+	 */
 	public function offsetUnset($offset): void
 	{
 		unset($this->attrs[$offset]);
@@ -87,8 +104,8 @@ class Attributes implements Countable, ArrayAccess, IteratorAggregate
 	/** MAGIC *****************************************************************/
 
 	/**
-	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
-	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint
+	 * @param mixed $name
+	 * @return mixed
 	 */
 	public function __get($name)
 	{

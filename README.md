@@ -7,10 +7,10 @@ Social plugins for Facebook, Google +1, Google Analytics, Twitter.
 [![Build Status](https://img.shields.io/travis/contributte/social.svg?style=flat-square)](https://travis-ci.org/contributte/social)
 [![Code coverage](https://img.shields.io/coveralls/contributte/social.svg?style=flat-square)](https://coveralls.io/r/contributte/social)
 [![Licence](https://img.shields.io/packagist/l/contributte/social.svg?style=flat-square)](https://packagist.org/packages/contributte/social)
-
 [![Downloads this Month](https://img.shields.io/packagist/dm/contributte/social.svg?style=flat-square)](https://packagist.org/packages/contributte/social)
 [![Downloads total](https://img.shields.io/packagist/dt/contributte/social.svg?style=flat-square)](https://packagist.org/packages/contributte/social)
 [![Latest stable](https://img.shields.io/packagist/v/contributte/social.svg?style=flat-square)](https://packagist.org/packages/contributte/social)
+[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat)](https://github.com/phpstan/phpstan)
 
 ## Discussion / Help
 
