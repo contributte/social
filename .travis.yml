@@ -3,6 +3,7 @@ php:
   - 7.1
   - 7.2
   - 7.3
+  - 7.4
 
 before_install:
   # Turn off XDebug
@@ -22,20 +23,20 @@ after_failure:
 
 jobs:
   include:
-    - env: title="Lowest Dependencies 7.1"
-      php: 7.1
+    - env: title="Lowest Dependencies 7.3"
+      php: 7.3
       install:
         - travis_retry composer update --no-progress --prefer-dist --prefer-lowest
       script:
         - composer run-script tests
 
     - stage: Quality Assurance
-      php: 7.1
+      php: 7.3
       script:
         - composer run-script qa
 
     - stage: Phpstan
-      php: 7.1
+      php: 7.3
       script:
         - composer run-script phpstan-install
         - composer run-script phpstan
@@ -51,9 +52,9 @@ jobs:
 
     - stage: Outdated Dependencies
       if: branch = master AND type = cron
-      php: 7.1
+      php: 7.3
       script:
-        - composer outdated --direct --strict
+        - composer outdated --direct
 
   allow_failures:
     - stage: Test Coverage
