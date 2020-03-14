@@ -18,10 +18,10 @@
   "require-dev": {
     "ninjify/qa": "^0.8.0",
     "ninjify/nunjuck": "^0.2.0",
-    "phpstan/phpstan": "^0.10",
-    "phpstan/phpstan-deprecation-rules": "^0.10",
-    "phpstan/phpstan-nette": "^0.10",
-    "phpstan/phpstan-strict-rules": "^0.10"
+    "phpstan/phpstan": "^0.12.2",
+    "phpstan/phpstan-deprecation-rules": "^0.12.0",
+    "phpstan/phpstan-nette": "^0.12.0",
+    "phpstan/phpstan-strict-rules": "^0.12.0"
   },
   "conflict": {
     "nette/http": "<=2.4.0"

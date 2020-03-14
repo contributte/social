@@ -10,11 +10,14 @@ use Nette\MemberAccessException;
 
 /**
  * Attributes
+ *
+ * @phpstan-implements ArrayAccess<string, mixed>
+ * @phpstan-implements IteratorAggregate<string, mixed>
  */
 class Attributes implements Countable, ArrayAccess, IteratorAggregate
 {
 
-	/** @var mixed[] */
+	/** @var array<string, mixed> */
 	private $attrs = [];
 
 	/** GETTERS/SETTERS *******************************************************/
@@ -36,7 +39,7 @@ class Attributes implements Countable, ArrayAccess, IteratorAggregate
 	}
 
 	/**
-	 * @return mixed[]
+	 * @return array<string, mixed>
 	 */
 	public function getAttributes(): array
 	{
@@ -44,7 +47,7 @@ class Attributes implements Countable, ArrayAccess, IteratorAggregate
 	}
 
 	/**
-	 * @param mixed[] $attrs
+	 * @param array<string, mixed> $attrs
 	 */
 	public function setAttributes(array $attrs): void
 	{
@@ -96,6 +99,9 @@ class Attributes implements Countable, ArrayAccess, IteratorAggregate
 
 	/** ARRAY ACCESS **********************************************************/
 
+	/**
+	 * @return ArrayIterator<string, mixed>
+	 */
 	public function getIterator(): ArrayIterator
 	{
 		return new ArrayIterator($this->attrs);
