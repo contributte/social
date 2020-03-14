@@ -67,9 +67,11 @@ class Campaign
 		if ($source === '') {
 			throw new InvalidArgumentException('GA: UTM parameter source is empty string!');
 		}
+
 		if ($medium === '') {
 			throw new InvalidArgumentException('GA: UTM parameter medium is empty string!');
 		}
+
 		if ($campaign === '') {
 			throw new InvalidArgumentException('GA: UTM parameter campaign is empty string!');
 		}
@@ -162,8 +164,13 @@ class Campaign
 		$args[self::UTM_CAMPAIGN] = $this->campaign;
 
 		// Assign optinal parameters [if they filled]
-		if ($this->term !== null) $args[self::UTM_TERM] = $this->term;
-		if ($this->content !== null) $args[self::UTM_CONTENT] = $this->content;
+		if ($this->term !== null) {
+			$args[self::UTM_TERM] = $this->term;
+		}
+
+		if ($this->content !== null) {
+			$args[self::UTM_CONTENT] = $this->content;
+		}
 
 		// Returns arguments
 		return $args;

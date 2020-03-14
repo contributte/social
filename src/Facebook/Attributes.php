@@ -100,6 +100,8 @@ class Attributes implements Countable, ArrayAccess, IteratorAggregate
 	/** ARRAY ACCESS **********************************************************/
 
 	/**
+	 * @todo remove phpcsSuppress after upgrade to slevomat/coding-standard 6
+	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.UselessReturnAnnotation
 	 * @return ArrayIterator<string, mixed>
 	 */
 	public function getIterator(): ArrayIterator
