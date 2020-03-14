@@ -5,11 +5,13 @@ includes:
 	- vendor/phpstan/phpstan-strict-rules/rules.neon
 
 parameters:
+	level: max
+	paths:
+		- src
 	ignoreErrors:
-		# Not sure about given data - better not to fix that without knowledge
-		- '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-		- '#^Property Contributte\\Social\\Google\\Analytics\\Campaign\\Campaign\:\:\$content \(string\) does not accept string\|null\.$#'
-		- '#^Property Contributte\\Social\\Google\\Analytics\\Campaign\\Campaign\:\:\$term \(string\) does not accept string\|null\.$#'
-		- '#^Method Contributte\\Social\\Twitter\\TweetButton\\TweetButton\:\:addHashtag\(\) has parameter \$hashtag with no typehint specified\.$#'
-		- '#^Only booleans are allowed in an if condition, string\|null given\.$#'
-		- "#^Casting to bool something that's already bool.$#"
+		# Not sure about given data - user can set properties via method setProperties, which is not type checked
+		-
+			message: '#^Strict comparison using \!== between string and null will always evaluate to true\.$#'
+			path: */src/Google/PlusOne/PlusOne.php
+			count: 1
+		- '#^Variable property access on Nette\\Utils\\Html\.$#'

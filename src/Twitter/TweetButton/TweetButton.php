@@ -17,13 +17,13 @@ use Nette\Utils\Validators;
  * @property string $related
  * @property string $count
  * @property string $counturl
- * @property array $hashtags
+ * @property string[] $hashtags
  * @property string $size
  * @property bool $dnt
  * @property string $lang
  * @property Html $elementPrototype
  * @property string $elementText
- * @property array $properties
+ * @property array<string, string> $properties
  */
 class TweetButton extends Control
 {
@@ -47,7 +47,7 @@ class TweetButton extends Control
 	/**
 	 * URL of the page to share
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	private $url;
 
@@ -61,21 +61,21 @@ class TweetButton extends Control
 	/**
 	 * Screen name of the user to attribute the Tweet to
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	private $via;
 
 	/**
 	 * Default Tweet text
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	private $text;
 
 	/**
 	 * Related accounts
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	private $related;
 
@@ -89,14 +89,14 @@ class TweetButton extends Control
 	/**
 	 * URL to which your shared URL resolves
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	private $counturl;
 
 	/**
 	 * Array hashtags appended to tweet text
 	 *
-	 * @var mixed[]
+	 * @var string[]
 	 */
 	private $hashtags = [];
 
@@ -138,7 +138,7 @@ class TweetButton extends Control
 	/**
 	 * Custom element properties
 	 *
-	 * @var mixed[]
+	 * @var array<string, string>
 	 */
 	private $properties = [];
 
@@ -150,7 +150,7 @@ class TweetButton extends Control
 
 	/** SETTERS/GETTERS *******************************************************/
 
-	public function getUrl(): string
+	public function getUrl(): ?string
 	{
 		return $this->url;
 	}
@@ -176,7 +176,7 @@ class TweetButton extends Control
 		return $this;
 	}
 
-	public function getVia(): string
+	public function getVia(): ?string
 	{
 		return $this->via;
 	}
@@ -188,7 +188,7 @@ class TweetButton extends Control
 		return $this;
 	}
 
-	public function getText(): string
+	public function getText(): ?string
 	{
 		return $this->text;
 	}
@@ -200,7 +200,7 @@ class TweetButton extends Control
 		return $this;
 	}
 
-	public function getRelated(): string
+	public function getRelated(): ?string
 	{
 		return $this->related;
 	}
@@ -224,7 +224,7 @@ class TweetButton extends Control
 		return $this;
 	}
 
-	public function getCounturl(): string
+	public function getCounturl(): ?string
 	{
 		return $this->counturl;
 	}
@@ -238,7 +238,7 @@ class TweetButton extends Control
 	}
 
 	/**
-	 * @return mixed[]
+	 * @return string[]
 	 */
 	public function getHashtags(): array
 	{
@@ -246,7 +246,7 @@ class TweetButton extends Control
 	}
 
 	/**
-	 * @param mixed[] $hashtags
+	 * @param string[] $hashtags
 	 */
 	public function setHashtags(array $hashtags): self
 	{
@@ -255,7 +255,7 @@ class TweetButton extends Control
 		return $this;
 	}
 
-	public function addHashtag($hashtag): self
+	public function addHashtag(string $hashtag): self
 	{
 		$this->hashtags[] = $hashtag;
 
@@ -267,10 +267,7 @@ class TweetButton extends Control
 		return $this->size;
 	}
 
-	/**
-	 * @param string $size
-	 */
-	public function setSize($size): self
+	public function setSize(string $size): self
 	{
 		$this->size = $size;
 
@@ -282,12 +279,9 @@ class TweetButton extends Control
 		return $this->dnt;
 	}
 
-	/**
-	 * @param bool $dnt
-	 */
-	public function setDnt($dnt): self
+	public function setDnt(bool $dnt): self
 	{
-		$this->dnt = (bool) $dnt;
+		$this->dnt = $dnt;
 
 		return $this;
 	}
@@ -297,10 +291,7 @@ class TweetButton extends Control
 		return $this->lang;
 	}
 
-	/**
-	 * @param string $lang
-	 */
-	public function setLang($lang): self
+	public function setLang(string $lang): self
 	{
 		$this->lang = $lang;
 
@@ -312,20 +303,14 @@ class TweetButton extends Control
 		return $this->elementText;
 	}
 
-	/**
-	 * @param string $elementText
-	 */
-	public function setElementText($elementText): self
+	public function setElementText(string $elementText): self
 	{
 		$this->elementText = $elementText;
 
 		return $this;
 	}
 
-	/**
-	 * @param Html $element
-	 */
-	public function setElementPrototype($element): void
+	public function setElementPrototype(Html $element): void
 	{
 		$this->element = $element;
 	}
@@ -336,7 +321,7 @@ class TweetButton extends Control
 	}
 
 	/**
-	 * @return mixed[]
+	 * @return array<string, string>
 	 */
 	public function getProperties(): array
 	{
@@ -344,7 +329,7 @@ class TweetButton extends Control
 	}
 
 	/**
-	 * @param mixed[] $properties
+	 * @param array<string, string> $properties
 	 */
 	public function setProperties(array $properties): self
 	{
@@ -364,25 +349,21 @@ class TweetButton extends Control
 
 	/**
 	 * Configure share button
-	 *
-	 * @param string $text [optional]
 	 */
-	public function setShareButton($text = null): void
+	public function setShareButton(?string $text = null): void
 	{
 		$this->element->addClass('twitter-share-button');
 		$this->href = self::TWITTER_SHARE_URL;
 
-		if ($text) {
+		if ($text !== null && $text !== '') {
 			$this->elementText = 'Tweet ' . $text;
 		}
 	}
 
 	/**
 	 * Configure mention button
-	 *
-	 * @param string $mention
 	 */
-	public function setMentionButton($mention = null): void
+	public function setMentionButton(?string $mention = null): void
 	{
 		$this->element->addClass('twitter-mention-button');
 
@@ -391,17 +372,15 @@ class TweetButton extends Control
 		$url->setQueryParameter('screen_name', $mention);
 		$this->href = (string) $url;
 
-		if ($mention) {
+		if ($mention !== null && $mention !== '') {
 			$this->elementText = 'Tweet to @' . $mention;
 		}
 	}
 
 	/**
 	 * Configure hashtag button
-	 *
-	 * @param string $hashtag
 	 */
-	public function setHashtagButton($hashtag = null): void
+	public function setHashtagButton(?string $hashtag = null): void
 	{
 		$this->element->addClass('twitter-hashtag-button');
 
@@ -410,7 +389,7 @@ class TweetButton extends Control
 		$url->setQueryParameter('button_hashtag', $hashtag);
 		$this->href = (string) $url;
 
-		if ($hashtag) {
+		if ($hashtag !== null && $hashtag !== '') {
 			$this->elementText = 'Tweet #' . $hashtag;
 		}
 	}
@@ -453,7 +432,7 @@ class TweetButton extends Control
 
 		// Set properties as data attributes
 		foreach ($properties as $key => $value) {
-			if ($value !== null && !empty($value)) {
+			if ($value !== null && $value !== '') {
 				$el->{'data-' . $key} = $value;
 			}
 		}

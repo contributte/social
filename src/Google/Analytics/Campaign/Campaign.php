@@ -48,7 +48,7 @@ class Campaign
 	 * Campaign Term (utm_term)
 	 * Used for paid search. Use utm_term to note the keywords for this ad.
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	private $term;
 
@@ -57,21 +57,21 @@ class Campaign
 	 * Used for A/B testing and content-targeted ads. Use utm_content to differentiate ads or links
 	 * that point to the same URL.
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	private $content;
 
 	public function __construct(string $source, string $medium, string $campaign, ?string $term = null, ?string $content = null)
 	{
 		// Validate source & medium * campaign
-		if (empty($source)) {
-			throw new InvalidArgumentException('GA: UTM parameter source is not filled correctly!');
+		if ($source === '') {
+			throw new InvalidArgumentException('GA: UTM parameter source is empty string!');
 		}
-		if (empty($medium)) {
-			throw new InvalidArgumentException('GA: UTM parameter medium is not filled correctly!');
+		if ($medium === '') {
+			throw new InvalidArgumentException('GA: UTM parameter medium is empty string!');
 		}
-		if (empty($campaign)) {
-			throw new InvalidArgumentException('GA: UTM parameter campaign is not filled correctly!');
+		if ($campaign === '') {
+			throw new InvalidArgumentException('GA: UTM parameter campaign is empty string!');
 		}
 
 		$this->campaign = $campaign;
@@ -104,7 +104,7 @@ class Campaign
 		$this->content = $content;
 	}
 
-	public function getContent(): string
+	public function getContent(): ?string
 	{
 		return $this->content;
 	}
@@ -143,7 +143,7 @@ class Campaign
 		$this->term = $term;
 	}
 
-	public function getTerm(): string
+	public function getTerm(): ?string
 	{
 		return $this->term;
 	}

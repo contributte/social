@@ -17,7 +17,7 @@ use Nette\Utils\Validators;
  * @property int $width
  * @property string $lang
  * @property Html $elementPrototype
- * @property array $properties
+ * @property array<string, string> $properties
  */
 class PlusOne extends Control
 {
@@ -65,7 +65,7 @@ class PlusOne extends Control
 	/** @var Html */
 	private $element;
 
-	/** @var mixed[] */
+	/** @var array<string, string> */
 	private $properties = [];
 
 	public function __construct()
@@ -169,7 +169,7 @@ class PlusOne extends Control
 	}
 
 	/**
-	 * @return mixed[]
+	 * @return array<string, string>
 	 */
 	public function getProperties(): array
 	{
@@ -177,7 +177,7 @@ class PlusOne extends Control
 	}
 
 	/**
-	 * @param mixed[] $properties
+	 * @param array<string, string> $properties
 	 */
 	public function setProperties(array $properties): self
 	{
@@ -225,7 +225,7 @@ class PlusOne extends Control
 
 		// Set properties as data attributes
 		foreach ($this->getProperties() as $key => $value) {
-			if ($value !== null && !empty($value)) {
+			if ($value !== null && $value !== '') {
 				$el->{'data-' . $key} = $value;
 			}
 		}
