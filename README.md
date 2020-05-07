@@ -16,11 +16,13 @@ Social plugins for Facebook, Google +1, Google Analytics, Twitter.
 
 [![Join the chat](https://img.shields.io/gitter/room/contributte/contributte.svg?style=flat-square)](http://bit.ly/ctteg)
 
-## Install
+## Documentation
 
-```
-composer require contributte/social
-```
+- [Install](.docs/README.md#install)
+- [Facebook](.docs/README.md#facebook)
+- [Twitter](.docs/README.md#twitter)
+- [Google Analytics Campaign](.docs/README.md#google-analytics-campaign-maker)
+- [Google +1](.docs/README.md#google-1)
 
 ## Versions
 
@@ -29,14 +31,6 @@ composer require contributte/social
 | development | `~2.1.0`  | `master` | `>= 7.1` |
 | stable      | `~2.0.0`  | `master` | `>= 7.1` |
 | stable      | `~1.2.0`  | `master` | `>= 5.6` |
-
-
-## Overview
-
-- [Facebook](https://github.com/contributte/social/tree/master/docs/Facebook.md)
-- [Twitter](https://github.com/contributte/social/tree/master/docs/Twitter.md)
-- [Google Analytics Campaign](https://github.com/contributte/social/tree/master/docs/GoogleAnalytics.md)
-- [Google +1](https://github.com/contributte/social/tree/master/docs/Google+1.md)
 
 ## Maintainers
 
