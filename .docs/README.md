@@ -10,7 +10,7 @@
 ## Install
 
 ```
-composer require contributte/social
+$ composer require contributte/social
 ```
 
 ## Facebook
