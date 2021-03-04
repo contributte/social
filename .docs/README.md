@@ -9,8 +9,8 @@
 
 ## Install
 
-```
-$ composer require contributte/social
+```bash
+composer require contributte/social
 ```
 
 ## Facebook
