@@ -9,7 +9,7 @@
 
 ## Install
 
-```
+```bash
 composer require contributte/social
 ```
 
@@ -206,7 +206,7 @@ $this->link('Foto:detail', $link);
 
 ##### config.neon
 
-```
+```yaml
 services:
     - Contributte\Social\Twitter\ITweetButtonFactory
 ```
