@@ -1,28 +1,34 @@
-# Social
+![](https://heatbadger.now.sh/github/readme/contributte/social/)
 
-Social plugins for Facebook, Google +1, Google Analytics, Twitter.
+<p align=center>
+  <a href="https://github.com/contributte/social/actions"><img src="https://badgen.net/github/checks/contributte/social/master"></a>
+  <a href="https://coveralls.io/r/contributte/social"><img src="https://badgen.net/coveralls/c/github/contributte/social"></a>
+  <a href="https://packagist.org/packages/contributte/social"><img src="https://badgen.net/packagist/dm/contributte/social"></a>
+  <a href="https://packagist.org/packages/contributte/social"><img src="https://badgen.net/packagist/v/contributte/social"></a>
+</p>
+<p align=center>
+  <a href="https://packagist.org/packages/contributte/social"><img src="https://badgen.net/packagist/php/contributte/social"></a>
+  <a href="https://github.com/contributte/social"><img src="https://badgen.net/github/license/contributte/social"></a>
+  <a href="https://bit.ly/ctteg"><img src="https://badgen.net/badge/support/gitter/cyan"></a>
+  <a href="https://bit.ly/cttfo"><img src="https://badgen.net/badge/support/forum/yellow"></a>
+  <a href="https://contributte.org/partners.html"><img src="https://badgen.net/badge/sponsor/donations/F96854"></a>
+</p>
 
------
+<p align=center>
+Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
+</p>
 
-[![Build Status](https://img.shields.io/travis/contributte/social.svg?style=flat-square)](https://travis-ci.org/contributte/social)
-[![Code coverage](https://img.shields.io/coveralls/contributte/social.svg?style=flat-square)](https://coveralls.io/r/contributte/social)
-[![Licence](https://img.shields.io/packagist/l/contributte/social.svg?style=flat-square)](https://packagist.org/packages/contributte/social)
-[![Downloads this Month](https://img.shields.io/packagist/dm/contributte/social.svg?style=flat-square)](https://packagist.org/packages/contributte/social)
-[![Downloads total](https://img.shields.io/packagist/dt/contributte/social.svg?style=flat-square)](https://packagist.org/packages/contributte/social)
-[![Latest stable](https://img.shields.io/packagist/v/contributte/social.svg?style=flat-square)](https://packagist.org/packages/contributte/social)
-[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat)](https://github.com/phpstan/phpstan)
+## Usage
 
-## Discussion / Help
+To install the latest version of `contributte/social` use [Composer](https://getcomposer.org).
 
-[![Join the chat](https://img.shields.io/gitter/room/contributte/contributte.svg?style=flat-square)](http://bit.ly/ctteg)
+```bash
+composer require contributte/social
+```
 
 ## Documentation
 
-- [Install](.docs/README.md#install)
-- [Facebook](.docs/README.md#facebook)
-- [Twitter](.docs/README.md#twitter)
-- [Google Analytics Campaign](.docs/README.md#google-analytics-campaign-maker)
-- [Google +1](.docs/README.md#google-1)
+For details on how to use this package, check out our [documentation](.docs).
 
 ## Versions
 
@@ -32,22 +38,18 @@ Social plugins for Facebook, Google +1, Google Analytics, Twitter.
 | stable      | `~2.0.0`  | `master` | `>= 7.1` |
 | stable      | `~1.2.0`  | `master` | `>= 5.6` |
 
-## Maintainers
 
-<table>
-  <tbody>
-    <tr>
-      <td align="center">
-        <a href="https://github.com/f3l1x">
-            <img width="150" height="150" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=150">
-        </a>
-        </br>
-        <a href="https://github.com/f3l1x">Milan Felix Šulc</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+## Development
+
+See [how to contribute](https://contributte.org/contributing.html) to this package.
+
+This package is currently maintaining by these authors.
+
+<a href="https://github.com/f3l1x">
+  <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=80">
+</a>
 
 -----
 
-Thank you for testing, reporting and contributing.
+Consider to [support](https://contributte.org/partners.html) **contributte** development team.
+Also thank you for using this package.
