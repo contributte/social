@@ -144,7 +144,6 @@ class TweetButton extends Control
 
 	public function __construct()
 	{
-		parent::__construct();
 		$this->element = Html::el('a class="twitter twitter-button"');
 	}
 
@@ -409,9 +408,9 @@ class TweetButton extends Control
 		// Set URL
 		if ($url !== null) {
 			Validators::assert($url, 'string|url');
-			$el->{'data-url'} = $url;
+			$el->setAttribute('data-url', $url);
 		} elseif ($this->url !== null) {
-			$el->{'data-url'} = $this->url;
+			$el->setAttribute('data-url', $this->url);
 		}
 
 		// List of default properties
@@ -433,7 +432,7 @@ class TweetButton extends Control
 		// Set properties as data attributes
 		foreach ($properties as $key => $value) {
 			if ($value !== null && $value !== '') {
-				$el->{'data-' . $key} = $value;
+				$el->setAttribute('data-' . $key, $value);
 			}
 		}
 

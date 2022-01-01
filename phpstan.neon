@@ -5,13 +5,7 @@ includes:
 	- vendor/phpstan/phpstan-strict-rules/rules.neon
 
 parameters:
-	level: max
-	paths:
-		- src
-	ignoreErrors:
-		# Not sure about given data - user can set properties via method setProperties, which is not type checked
-		-
-			message: '#^Strict comparison using \!== between string and null will always evaluate to true\.$#'
-			path: */src/Google/PlusOne/PlusOne.php
-			count: 1
-		- '#^Variable property access on Nette\\Utils\\Html\.$#'
+	level: 9
+	phpVersion: 70200
+
+	checkExplicitMixed: false

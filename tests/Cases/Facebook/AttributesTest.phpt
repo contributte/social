@@ -55,9 +55,10 @@ test(function (): void {
 	Assert::equal($value, $attrs->offsetGet($name));
 
 	$attrs->offsetUnset($name);
+
 	Assert::error(function () use ($attrs, $name): void {
 		$attrs->offsetGet($name);
-	}, 'E_NOTICE', 'Undefined index: ' . $name);
+	}, PHP_VERSION_ID >= 80000 ? E_WARNING : E_NOTICE);
 });
 
 test(function (): void {

@@ -70,7 +70,6 @@ class PlusOne extends Control
 
 	public function __construct()
 	{
-		parent::__construct();
 		$this->element = Html::el('div class="g-plusone"');
 	}
 
@@ -225,8 +224,8 @@ class PlusOne extends Control
 
 		// Set properties as data attributes
 		foreach ($this->getProperties() as $key => $value) {
-			if ($value !== null && $value !== '') {
-				$el->{'data-' . $key} = $value;
+			if ($value !== '') {
+				$el->setAttribute('data-' . $key, $value);
 			}
 		}
 

@@ -39,7 +39,7 @@ test(function (): void {
 	$og->add($name, $value);
 
 	ob_start();
-	$res = $og->render();
+	$og->render();
 	Assert::equal('<meta property="name1" content="value1">', ob_get_contents());
 	ob_end_clean();
 });

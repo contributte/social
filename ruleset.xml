@@ -11,10 +11,10 @@
 	<!-- Specific rules -->
 	<rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
 		<properties>
-			<property name="rootNamespaces" type="array" value="
-				src=>Contributte\Social,
-				tests/fixtures=>Tests\Fixtures
-			"/>
+			<property name="rootNamespaces" type="array">
+				<element key="src" value="Contributte\Social"/>
+				<element key="tests" value="Tests"/>
+			</property>
 		</properties>
 	</rule>
 
@@ -22,6 +22,9 @@
 		<exclude-pattern>/tests/cases</exclude-pattern>
 	</rule>
 	<rule ref="Squiz.Classes.ClassFileName.NoMatch">
+		<exclude-pattern>/tests/cases</exclude-pattern>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName.NoMatchBetweenTypeNameAndFileName">
 		<exclude-pattern>/tests/cases</exclude-pattern>
 	</rule>
 

@@ -4,7 +4,6 @@ namespace Contributte\Social\Facebook;
 
 use Nette\Application\UI\Control as NetteControl;
 use Nette\Bridges\ApplicationLatte\Template;
-use Nette\ComponentModel\IContainer;
 use Nette\Utils\Html;
 
 /**
@@ -18,12 +17,8 @@ abstract class Control extends NetteControl
 	/** @var Attributes */
 	protected $attributes;
 
-	/**
-	 * @param string $name
-	 */
-	public function __construct(?IContainer $parent = null, $name = null)
+	public function __construct()
 	{
-		parent::__construct($parent, $name);
 		$this->attributes = new Attributes();
 	}
 
@@ -37,14 +32,14 @@ abstract class Control extends NetteControl
 	/** HELPERS ***************************************************************/
 
 	/**
-	 * @param Attributes|mixed[] $attributes
+	 * @param Attributes|array<string, string> $attributes
 	 */
 	protected function createElement($attributes): Html
 	{
 		$el = Html::el('div');
 
 		foreach ($attributes as $key => $val) {
-			$el->$key = $val;
+			$el->setAttribute($key, $val);
 		}
 
 		return $el;
