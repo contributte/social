@@ -1,16 +1,13 @@
 <?php declare(strict_types = 1);
 
-/**
- * Test: PlusOneTest
- */
-
 use Contributte\Social\Google\PlusOne\PlusOne;
+use Contributte\Tester\Toolkit;
 use Nette\Utils\Html;
 use Tester\Assert;
 
 require __DIR__ . '/../../../bootstrap.php';
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$p1 = new PlusOne();
 
 	$p1->setUrl('http://google.com');
@@ -42,7 +39,7 @@ test(function (): void {
 	Assert::equal(['prop1', 'prop2', 'prop3' => '1'], $p1->getProperties());
 });
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$url = 'www.google.com';
 	$p1 = new PlusOne();
 	$p1->setCallback('c');
@@ -61,7 +58,7 @@ test(function (): void {
 	ob_end_clean();
 });
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$p1 = new PlusOne();
 	$p1->setLang('cs');
 

@@ -1,16 +1,13 @@
 <?php declare(strict_types = 1);
 
-/**
- * Test: TweetButtonTest
- */
-
 use Contributte\Social\Twitter\TweetButton\TweetButton;
+use Contributte\Tester\Toolkit;
 use Nette\Utils\Html;
 use Tester\Assert;
 
 require __DIR__ . '/../../../bootstrap.php';
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$button = new TweetButton();
 
 	$button->setCount('foo');
@@ -60,7 +57,7 @@ test(function (): void {
 	Assert::equal(['prop1', 'prop2', 'prop3' => '1'], $button->getProperties());
 });
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$button = new TweetButton();
 
 	ob_start();
@@ -69,28 +66,28 @@ test(function (): void {
 	ob_end_clean();
 });
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$button = new TweetButton();
 	$button->setShareButton('share');
 
 	Assert::equal('Tweet share', $button->getElementText());
 });
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$button = new TweetButton();
 	$button->setMentionButton('mention');
 
 	Assert::equal('Tweet to @mention', $button->getElementText());
 });
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$button = new TweetButton();
 	$button->setHashtagButton('hash');
 
 	Assert::equal('Tweet #hash', $button->getElementText());
 });
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$button = new TweetButton();
 	$url = 'http://google.com';
 

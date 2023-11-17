@@ -1,22 +1,18 @@
 <?php declare(strict_types = 1);
 
-/**
- * Test: OGTest
- */
-
 use Contributte\Social\Facebook\OG\OG;
 use Tester\Assert;
 
 require __DIR__ . '/../../../bootstrap.php';
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$og = new OG();
 
 	Assert::count(0, $og->getTags());
 	Assert::count(0, $og->build()->getChildren());
 });
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$og = new OG();
 
 	$name = 'name1';
@@ -31,7 +27,7 @@ test(function (): void {
 	Assert::count(1, $og->build()->getChildren());
 });
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$og = new OG();
 
 	$name = 'name1';

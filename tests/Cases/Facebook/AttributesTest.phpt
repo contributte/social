@@ -1,22 +1,19 @@
 <?php declare(strict_types = 1);
 
-/**
- * Test: AttributesTest
- */
-
 use Contributte\Social\Facebook\Attributes;
+use Contributte\Tester\Toolkit;
 use Tester\Assert;
 
 require __DIR__ . '/../../bootstrap.php';
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$attrs = new Attributes();
 
 	Assert::count(0, $attrs->getAttributes());
 	Assert::count(0, $attrs);
 });
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$attrs = new Attributes();
 
 	$name = 'test';
@@ -34,7 +31,7 @@ test(function (): void {
 	Assert::equal($value, $array[$name]);
 });
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$attrs = new Attributes();
 
 	$name = 'test';
@@ -45,7 +42,7 @@ test(function (): void {
 	Assert::equal($value, $attrs->getAttributes()[$dataname]);
 });
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$attrs = new Attributes();
 
 	$name = 'test';
@@ -61,7 +58,7 @@ test(function (): void {
 	}, PHP_VERSION_ID >= 80000 ? E_WARNING : E_NOTICE);
 });
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$attrs = new Attributes();
 
 	$name = 'test';
@@ -76,7 +73,7 @@ test(function (): void {
 	Assert::equal($value2, $attrs->getAttributes()[$name]);
 });
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$attrs = new Attributes();
 
 	Assert::false(isset($attrs->test));
@@ -89,7 +86,7 @@ test(function (): void {
 	Assert::equal($value, $attrs->__get($name));
 });
 
-test(function (): void {
+Toolkit::test(function (): void {
 	Assert::throws(function (): void {
 		$attrs = new Attributes();
 		$attrs->test;

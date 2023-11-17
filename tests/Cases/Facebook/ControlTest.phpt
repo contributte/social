@@ -1,10 +1,7 @@
 <?php declare(strict_types = 1);
 
-/**
- * Test: ControlTest
- */
-
 use Contributte\Social\Facebook\Control;
+use Contributte\Tester\Toolkit;
 use Nette\Utils\Html;
 use Tester\Assert;
 
@@ -28,13 +25,13 @@ final class ControlMock extends Control
 
 }
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$control = new ControlMock();
 
 	Assert::equal((string) Html::el('div'), (string) $control->build());
 });
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$control = new ControlMock();
 
 	$attrs = $control->getAttributes();
