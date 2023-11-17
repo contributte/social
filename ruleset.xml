@@ -1,14 +1,11 @@
-<?xml version="1.0"?>
-<ruleset name="Contributte">
-	<!-- Contributte Coding Standard -->
-	<rule ref="./vendor/ninjify/coding-standard/contributte.xml">
-		<exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint"/>
-		<exclude name="Squiz.Commenting.FunctionComment.SpacingAfter"/>
-		<exclude name="Generic.Commenting.DocComment.SpacingBeforeShort"/>
-		<exclude name="Squiz.Commenting.FunctionComment.InvalidTypeHint"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="Contributte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
+	<!-- Rulesets -->
+	<rule ref="./vendor/contributte/qa/ruleset-8.0.xml">
+		<exclude name="SlevomatCodingStandard.PHP.DisallowReference.DisallowedPassingByReference"/>
 	</rule>
 
-	<!-- Specific rules -->
+	<!-- Rules -->
 	<rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
 		<properties>
 			<property name="rootNamespaces" type="array">
@@ -18,17 +15,6 @@
 		</properties>
 	</rule>
 
-	<rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
-		<exclude-pattern>/tests/cases</exclude-pattern>
-	</rule>
-	<rule ref="Squiz.Classes.ClassFileName.NoMatch">
-		<exclude-pattern>/tests/cases</exclude-pattern>
-	</rule>
-	<rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName.NoMatchBetweenTypeNameAndFileName">
-		<exclude-pattern>/tests/cases</exclude-pattern>
-	</rule>
-
-	<!--Exclude folders -->
+	<!-- Excludes -->
 	<exclude-pattern>/tests/tmp</exclude-pattern>
 </ruleset>
-
