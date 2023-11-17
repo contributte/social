@@ -22,58 +22,44 @@ use Nette\Utils\Validators;
 class PlusOne extends Control
 {
 
-	/** Size constants */
 	public const SIZE_SMALL = 'small';
 	public const SIZE_MEDIUM = 'medium';
 	public const SIZE_STANDARD = 'standard';
 	public const SIZE_TALL = 'tall';
 
-	/** Annotation constants */
 	public const ANNOTATION_INLINE = 'inline';
 	public const ANNOTATION_BUBBLE = 'bubble';
 	public const ANNOTATION_NONE = 'none';
 
-	/** Render modes */
 	public const MODE_DEFAULT = 1;
 	public const MODE_EXPLICIT = 2;
 	public const MODE_DYNAMIC = 3;
 
-	/** Google platform URL */
 	public const GOOGLE_PLATFORM_URL = 'https://apis.google.com/js/platform.js';
 
-	/** @var string */
-	public $size = self::SIZE_STANDARD;
+	public string $size = self::SIZE_STANDARD;
 
-	/** @var string */
-	public $annotation = self::ANNOTATION_INLINE;
+	public string $annotation = self::ANNOTATION_INLINE;
 
-	/** @var string */
-	private $callback;
+	private string $callback;
 
-	/** @var string */
-	private $url;
+	private string $url;
 
-	/** @var int */
-	private $mode = self::MODE_DEFAULT;
+	private int $mode = self::MODE_DEFAULT;
 
-	/** @var int */
-	private $width = 300;
+	private int $width = 300;
 
-	/** @var string */
-	private $lang = 'cs';
+	private string $lang = 'cs';
 
-	/** @var Html */
-	private $element;
+	private Html $element;
 
 	/** @var array<string, string> */
-	private $properties = [];
+	private array $properties = [];
 
 	public function __construct()
 	{
 		$this->element = Html::el('div class="g-plusone"');
 	}
-
-	/** SETTERS/GETTERS *******************************************************/
 
 	public function setCallback(string $callback): self
 	{
@@ -87,10 +73,7 @@ class PlusOne extends Control
 		return $this->callback;
 	}
 
-	/**
-	 * @param int $mode
-	 */
-	public function setMode($mode): self
+	public function setMode(int $mode): self
 	{
 		$this->mode = $mode;
 
@@ -102,10 +85,7 @@ class PlusOne extends Control
 		return $this->mode;
 	}
 
-	/**
-	 * @param string $lang
-	 */
-	public function setLang($lang): self
+	public function setLang(string $lang): self
 	{
 		$this->lang = $lang;
 
@@ -117,10 +97,7 @@ class PlusOne extends Control
 		return $this->lang;
 	}
 
-	/**
-	 * @param string $size
-	 */
-	public function setSize($size): self
+	public function setSize(string $size): self
 	{
 		$this->size = $size;
 
@@ -191,8 +168,6 @@ class PlusOne extends Control
 
 		return $this;
 	}
-
-	/** RENDERERS *************************************************************/
 
 	/**
 	 * Render google +1 button

@@ -10,7 +10,6 @@ use InvalidArgumentException;
 class Campaign
 {
 
-	/** GA UTM FIELDS  */
 	public const UTM_SOURCE = 'utm_source';
 	public const UTM_MEDIUM = 'utm_medium';
 	public const UTM_CAMPAIGN = 'utm_campaign';
@@ -21,45 +20,38 @@ class Campaign
 	 * Campaign Source (utm_source)
 	 * Use utm_source to identify a search engine, newsletter name, or other source.
 	 *
-	 * @var string
 	 * @required
 	 */
-	private $source;
+	private string $source;
 
 	/**
 	 * Campaign Medium (utm_medium)
 	 * Use utm_medium to identify a medium such as email or cost-per- click.
 	 *
-	 * @var string
 	 * @required
 	 */
-	private $medium;
+	private string $medium;
 
 	/**
 	 * Campaign Name (utm_campaign)
 	 * Used for keyword analysis. Use utm_campaign to identify a specific product promotion or strategic campaign.
 	 *
-	 * @var string
 	 * @required
 	 */
-	private $campaign;
+	private string $campaign;
 
 	/**
 	 * Campaign Term (utm_term)
 	 * Used for paid search. Use utm_term to note the keywords for this ad.
-	 *
-	 * @var string|null
 	 */
-	private $term;
+	private ?string $term = null;
 
 	/**
 	 * Campaign Content (utm_content)
 	 * Used for A/B testing and content-targeted ads. Use utm_content to differentiate ads or links
 	 * that point to the same URL.
-	 *
-	 * @var string|null
 	 */
-	private $content;
+	private ?string $content = null;
 
 	public function __construct(string $source, string $medium, string $campaign, ?string $term = null, ?string $content = null)
 	{
@@ -83,12 +75,17 @@ class Campaign
 		$this->term = $term;
 	}
 
-	/** GETTERS/SETTERS *******************************************************/
-
 	/**
-	 * @param string $campaign
+	 * @return mixed[] UTM arguments
 	 */
-	public function setCampaign($campaign): void
+	public static function create(string $source, string $medium, string $campaign, ?string $term = null, ?string $content = null): array
+	{
+		$app = new Campaign($source, $medium, $campaign, $term, $content);
+
+		return $app->build();
+	}
+
+	public function setCampaign(string $campaign): void
 	{
 		$this->campaign = $campaign;
 	}
@@ -98,10 +95,7 @@ class Campaign
 		return $this->campaign;
 	}
 
-	/**
-	 * @param string $content
-	 */
-	public function setContent($content): void
+	public function setContent(string $content): void
 	{
 		$this->content = $content;
 	}
@@ -111,10 +105,7 @@ class Campaign
 		return $this->content;
 	}
 
-	/**
-	 * @param string $medium
-	 */
-	public function setMedium($medium): void
+	public function setMedium(string $medium): void
 	{
 		$this->medium = $medium;
 	}
@@ -124,10 +115,7 @@ class Campaign
 		return $this->medium;
 	}
 
-	/**
-	 * @param string $source
-	 */
-	public function setSource($source): void
+	public function setSource(string $source): void
 	{
 		$this->source = $source;
 	}
@@ -137,10 +125,7 @@ class Campaign
 		return $this->source;
 	}
 
-	/**
-	 * @param string $term
-	 */
-	public function setTerm($term): void
+	public function setTerm(string $term): void
 	{
 		$this->term = $term;
 	}
@@ -149,8 +134,6 @@ class Campaign
 	{
 		return $this->term;
 	}
-
-	/** API *******************************************************************/
 
 	/**
 	 * @return mixed[] UTM arguments
@@ -174,18 +157,6 @@ class Campaign
 
 		// Returns arguments
 		return $args;
-	}
-
-	/** FACTORY ***************************************************************/
-
-	/**
-	 * @return mixed[] UTM arguments
-	 */
-	public static function create(string $source, string $medium, string $campaign, ?string $term = null, ?string $content = null): array
-	{
-		$app = new Campaign($source, $medium, $campaign, $term, $content);
-
-		return $app->build();
 	}
 
 }

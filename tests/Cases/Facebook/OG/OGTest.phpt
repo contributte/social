@@ -1,6 +1,7 @@
 <?php declare(strict_types = 1);
 
 use Contributte\Social\Facebook\OG\OG;
+use Contributte\Tester\Toolkit;
 use Tester\Assert;
 
 require __DIR__ . '/../../../bootstrap.php';

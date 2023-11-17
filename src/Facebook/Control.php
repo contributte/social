@@ -14,27 +14,24 @@ use Nette\Utils\Html;
 abstract class Control extends NetteControl
 {
 
-	/** @var Attributes */
-	protected $attributes;
+	protected Attributes $attributes;
 
 	public function __construct()
 	{
 		$this->attributes = new Attributes();
 	}
 
-	/** GETTERS ***************************************************************/
+	abstract public function build(): Html;
 
 	public function getAttributes(): Attributes
 	{
 		return $this->attributes;
 	}
 
-	/** HELPERS ***************************************************************/
-
 	/**
 	 * @param Attributes|array<string, string> $attributes
 	 */
-	protected function createElement($attributes): Html
+	protected function createElement(Attributes|array $attributes): Html
 	{
 		$el = Html::el('div');
 
@@ -44,9 +41,5 @@ abstract class Control extends NetteControl
 
 		return $el;
 	}
-
-	/** ABSTRACT **************************************************************/
-
-	abstract public function build(): Html;
 
 }

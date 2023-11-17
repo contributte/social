@@ -18,22 +18,14 @@ class Attributes implements Countable, ArrayAccess, IteratorAggregate
 {
 
 	/** @var array<string, mixed> */
-	private $attrs = [];
+	private array $attrs = [];
 
-	/** GETTERS/SETTERS *******************************************************/
-
-	/**
-	 * @param mixed $value
-	 */
-	public function add(string $name, $value): void
+	public function add(string $name, mixed $value): void
 	{
 		$this->attrs[$name] = $value;
 	}
 
-	/**
-	 * @param mixed $value
-	 */
-	public function data(string $name, $value): void
+	public function data(string $name, mixed $value): void
 	{
 		$this->attrs['data-' . $name] = $value;
 	}
@@ -54,54 +46,32 @@ class Attributes implements Countable, ArrayAccess, IteratorAggregate
 		$this->attrs = $attrs;
 	}
 
-	/** COUNTABLE *************************************************************/
-
 	public function count(): int
 	{
 		return count($this->attrs);
 	}
 
-	/** ARRAY ACCESS **********************************************************/
-
-	/**
-	 * @param mixed $offset
-	 */
-	public function offsetExists($offset): bool
+	public function offsetExists(mixed $offset): bool
 	{
 		return isset($this->attrs[$offset]);
 	}
 
-	/**
-	 * @param mixed $offset
-	 * @return mixed
-	 */
-	public function offsetGet($offset)
+	public function offsetGet(mixed $offset): mixed
 	{
 		return $this->attrs[$offset];
 	}
 
-	/**
-	 * @param mixed $offset
-	 * @param mixed $value
-	 */
-	public function offsetSet($offset, $value): void
+	public function offsetSet(mixed $offset, mixed $value): void
 	{
 		$this->attrs[$offset] = $value;
 	}
 
-	/**
-	 * @param mixed $offset
-	 */
-	public function offsetUnset($offset): void
+	public function offsetUnset(mixed $offset): void
 	{
 		unset($this->attrs[$offset]);
 	}
 
-	/** ARRAY ACCESS **********************************************************/
-
 	/**
-	 * @todo remove phpcsSuppress after upgrade to slevomat/coding-standard 6
-	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.UselessReturnAnnotation
 	 * @return ArrayIterator<string, mixed>
 	 */
 	public function getIterator(): ArrayIterator
@@ -109,13 +79,7 @@ class Attributes implements Countable, ArrayAccess, IteratorAggregate
 		return new ArrayIterator($this->attrs);
 	}
 
-	/** MAGIC *****************************************************************/
-
-	/**
-	 * @param mixed $name
-	 * @return mixed
-	 */
-	public function __get($name)
+	public function __get(string $name): mixed
 	{
 		if ($this->offsetExists($name)) {
 			return $this->offsetGet($name);

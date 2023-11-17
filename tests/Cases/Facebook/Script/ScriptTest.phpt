@@ -1,15 +1,12 @@
 <?php declare(strict_types = 1);
 
-/**
- * Test: ScriptTest
- */
-
 use Contributte\Social\Facebook\Script\Script;
+use Contributte\Tester\Toolkit;
 use Tester\Assert;
 
 require __DIR__ . '/../../../bootstrap.php';
 
-test(function (): void {
+Toolkit::test(function (): void {
 	$script = new Script();
 
 	$id = 1;

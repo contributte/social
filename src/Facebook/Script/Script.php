@@ -5,32 +5,19 @@ namespace Contributte\Social\Facebook\Script;
 use Contributte\Social\Facebook\Control;
 use Nette\Utils\Html;
 
-/**
- * Script control
- */
 class Script extends Control
 {
 
-	/** @var string|int|float */
-	private $appId;
+	private string|int|float $appId;
 
-	/** @var string */
-	private $apiVersion = 'v2.7';
+	private string $apiVersion = 'v2.7';
 
-	/** GETTERS/SETTERS *******************************************************/
-
-	/**
-	 * @return string|int|float
-	 */
-	public function getAppId()
+	public function getAppId(): string|int|float
 	{
 		return $this->appId;
 	}
 
-	/**
-	 * @param string|int|float $appId
-	 */
-	public function setAppId($appId): void
+	public function setAppId(string|int|float $appId): void
 	{
 		$this->appId = $appId;
 	}
@@ -40,22 +27,15 @@ class Script extends Control
 		return $this->apiVersion;
 	}
 
-	/**
-	 * @param string $apiVersion
-	 */
-	public function setApiVersion($apiVersion): void
+	public function setApiVersion(string $apiVersion): void
 	{
 		$this->apiVersion = $apiVersion;
 	}
-
-	/** API *******************************************************************/
 
 	public function build(): Html
 	{
 		return Html::el();
 	}
-
-	/** RENDER ****************************************************************/
 
 	public function render(): void
 	{

@@ -16,5 +16,5 @@
 	</rule>
 
 	<!-- Excludes -->
-	<exclude-pattern>/tests/tmp</exclude-pattern>
+	<exclude-pattern>/tests</exclude-pattern>
 </ruleset>

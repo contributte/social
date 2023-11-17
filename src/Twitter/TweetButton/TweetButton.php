@@ -28,126 +28,96 @@ use Nette\Utils\Validators;
 class TweetButton extends Control
 {
 
-	/** Size constants */
 	public const SIZE_MEDIUM = 'medium';
 	public const SIZE_LARGE = 'large';
 
-	/** Countbox constants */
 	public const COUNTBOX_NONE = 'none';
 	public const COUNTBOX_VERTICAL = 'vertical';
 	public const COUNTBOX_HORIZONTAL = 'horizontal';
 
-	/** Platform URL */
 	public const TWITTER_PLATFORM_URL = 'https://platform.twitter.com/widgets.js';
 
-	/** Twitter URLs */
 	public const TWITTER_SHARE_URL = 'https://twitter.com/share';
 	public const TWITTER_TWEET_URL = 'https://twitter.com/intent/tweet';
 
 	/**
 	 * URL of the page to share
-	 *
-	 * @var string|null
 	 */
-	private $url;
+	private ?string $url = null;
 
 	/**
 	 * Twitter href (share/tweet/etc..)
-	 *
-	 * @var string
 	 */
-	private $href = self::TWITTER_SHARE_URL;
+	private string $href = self::TWITTER_SHARE_URL;
 
 	/**
 	 * Screen name of the user to attribute the Tweet to
-	 *
-	 * @var string|null
 	 */
-	private $via;
+	private ?string $via = null;
 
 	/**
 	 * Default Tweet text
-	 *
-	 * @var string|null
 	 */
-	private $text;
+	private ?string $text = null;
 
 	/**
 	 * Related accounts
-	 *
-	 * @var string|null
 	 */
-	private $related;
+	private ?string $related = null;
 
 	/**
 	 * Count box position
-	 *
-	 * @var string
 	 */
-	private $count = self::COUNTBOX_VERTICAL;
+	private string $count = self::COUNTBOX_VERTICAL;
 
 	/**
 	 * URL to which your shared URL resolves
-	 *
-	 * @var string|null
 	 */
-	private $counturl;
+	private ?string $counturl = null;
 
 	/**
 	 * Array hashtags appended to tweet text
 	 *
 	 * @var string[]
 	 */
-	private $hashtags = [];
+	private array $hashtags = [];
 
 	/**
 	 * The size of the rendered button
-	 *
-	 * @var string
 	 */
-	private $size = self::SIZE_MEDIUM;
+	private string $size = self::SIZE_MEDIUM;
 
 	/**
 	 * Help us tailor content and suggestions for Twitter users
-	 *
-	 * @var bool
 	 */
-	private $dnt = false;
+	private bool $dnt = false;
 
 	/**
 	 * The language for the Tweet Button
-	 *
-	 * @var string
 	 */
-	private $lang = 'en';
+	private string $lang = 'en';
 
 	/**
 	 * Html element prototype
-	 *
-	 * @var Html
 	 */
-	private $element;
+	private Html $element;
 
 	/**
 	 * Element inner text
-	 *
-	 * @var string
 	 */
-	private $elementText = 'Tweet';
+	private string $elementText = 'Tweet';
 
 	/**
 	 * Custom element properties
 	 *
 	 * @var array<string, string>
 	 */
-	private $properties = [];
+	private array $properties = [];
 
 	public function __construct()
 	{
 		$this->element = Html::el('a class="twitter twitter-button"');
 	}
-
-	/** SETTERS/GETTERS *******************************************************/
 
 	public function getUrl(): ?string
 	{
@@ -344,8 +314,6 @@ class TweetButton extends Control
 		return $this;
 	}
 
-	/** HELPERS ***************************************************************/
-
 	/**
 	 * Configure share button
 	 */
@@ -393,8 +361,6 @@ class TweetButton extends Control
 		}
 	}
 
-	/** RENDERS ***************************************************************/
-
 	/**
 	 * Render twitter tweet button
 	 */
@@ -431,6 +397,7 @@ class TweetButton extends Control
 
 		// Set properties as data attributes
 		foreach ($properties as $key => $value) {
+			// @phpstan-ignore-next-line
 			if ($value !== null && $value !== '') {
 				$el->setAttribute('data-' . $key, $value);
 			}

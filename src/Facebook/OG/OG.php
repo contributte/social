@@ -12,13 +12,9 @@ class OG extends Control
 {
 
 	/** @var string[] */
-	private $tags = [];
+	private array $tags = [];
 
-	/**
-	 * @param string $name
-	 * @param string $value
-	 */
-	public function add($name, $value): void
+	public function add(string $name, string $value): void
 	{
 		$this->tags[$name] = $value;
 	}
@@ -39,8 +35,6 @@ class OG extends Control
 		$this->tags = $tags;
 	}
 
-	/** API ********************************************************************/
-
 	public function build(): Html
 	{
 		$wrapper = Html::el();
@@ -53,8 +47,6 @@ class OG extends Control
 
 		return $wrapper;
 	}
-
-	/** RENDERS ***************************************************************/
 
 	public function render(): void
 	{
